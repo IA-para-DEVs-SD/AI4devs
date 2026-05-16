@@ -123,6 +123,14 @@ flowchart TD
 
     [:octicons-arrow-right-24: Ver Labs](labs.md)
 
+-   :material-clipboard-check:{ .lg .middle } **Quizzes**
+
+    ---
+
+    Teste seus conhecimentos com feedback imediato após cada sessão.
+
+    [:octicons-arrow-right-24: Ver Quizzes](bloco1/quiz-b1s02.md)
+
 </div>
 
 ## Estrutura
