@@ -70,10 +70,8 @@ nav:
   - "🏠 Início": index.md
   - "📘 Bloco 1 — Fundamentos":
     - "S01 — Fundamentos de IA": bloco1/s01-fundamentos.md
-    - "S02 — Prompt Engineering": bloco1/s02-prompt-engineering.md
+    - "S02 — Prompt e Context Engineering": bloco1/s02-prompt-engineering.md
     - "S03 — IA no Desenvolvimento": bloco1/s03-ia-desenvolvimento.md
-    - "📝 Quiz B1S02": bloco1/quiz-b1s02.md
-    - "📝 Quiz B1S03": bloco1/quiz-b1s03.md
   - "📗 Bloco 2 — Agentes e Automação":
     - "S01 — Tools e ReAct": bloco2/s01-tools-react.md
     - "S02 — Memória e Orquestração": bloco2/s02-memoria-orquestracao.md
@@ -81,14 +79,17 @@ nav:
     - "S04 — MCP e LangGraph": bloco2/s04-mcp-langgraph.md
     - "S05 — RAG e Avaliação": bloco2/s05-rag-avaliacao.md
     - "S06 — Agentes em Produção": bloco2/s06-producao.md
-    - "📝 Quiz B2S01": bloco2/quiz-b2s01.md
-    - "📝 Quiz B2S02": bloco2/quiz-b2s02.md
-    - "📝 Quiz B2S03": bloco2/quiz-b2s03.md
-    - "📝 Quiz B2S04": bloco2/quiz-b2s04.md
-    - "📝 Quiz B2S05": bloco2/quiz-b2s05.md
-  - "🧪 Labs e Código":
+  - "🧪 Labs":
     - "Labs Práticos": labs.md
-    - "Repositório Unificado": repositorio.md
+    - "Repositório": repositorio.md
     - "Soluções": solucoes.md
-  - "🔧 Ferramentas de IA": ferramentas.md
-  - "👥 Projetos das Equipes": projetos.md
+  - "📝 Quizzes":
+    - "Quiz B1S02": bloco1/quiz-b1s02.md
+    - "Quiz B1S03": bloco1/quiz-b1s03.md
+    - "Quiz B2S01": bloco2/quiz-b2s01.md
+    - "Quiz B2S02": bloco2/quiz-b2s02.md
+    - "Quiz B2S03": bloco2/quiz-b2s03.md
+    - "Quiz B2S04": bloco2/quiz-b2s04.md
+    - "Quiz B2S05": bloco2/quiz-b2s05.md
+  - "🔧 Ferramentas": ferramentas.md
+  - "👥 Projetos": projetos.md
