@@ -1,0 +1,94 @@
+site_name: "AI4Devs — Curso de IA para Desenvolvedores"
+site_description: "Resumo interativo do curso IA para Desenvolvedores"
+site_author: "LAB365"
+
+theme:
+  name: material
+  language: pt-BR
+  palette:
+    - scheme: slate
+      primary: deep purple
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Modo claro
+    - scheme: default
+      primary: deep purple
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Modo escuro
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - content.tabs.link
+    - toc.integrate
+  icon:
+    logo: material/robot-happy
+  font:
+    text: Inter
+    code: JetBrains Mono
+
+plugins:
+  - search:
+      lang: pt
+  - minify:
+      minify_html: true
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list
+  - md_in_html
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - toc:
+      permalink: true
+
+extra_css:
+  - assets/css/quiz.css
+  - assets/css/custom.css
+
+extra_javascript:
+  - assets/js/quiz.js
+
+nav:
+  - "🏠 Início": index.md
+  - "📘 Bloco 1 — Fundamentos":
+    - "S01 — Fundamentos de IA": bloco1/s01-fundamentos.md
+    - "S02 — Prompt Engineering": bloco1/s02-prompt-engineering.md
+    - "S03 — IA no Desenvolvimento": bloco1/s03-ia-desenvolvimento.md
+    - "📝 Quiz B1S02": bloco1/quiz-b1s02.md
+    - "📝 Quiz B1S03": bloco1/quiz-b1s03.md
+  - "📗 Bloco 2 — Agentes e Automação":
+    - "S01 — Tools e ReAct": bloco2/s01-tools-react.md
+    - "S02 — Memória e Orquestração": bloco2/s02-memoria-orquestracao.md
+    - "S03 — Low Code e Monitoramento": bloco2/s03-lowcode-monitoramento.md
+    - "S04 — MCP e LangGraph": bloco2/s04-mcp-langgraph.md
+    - "S05 — RAG e Avaliação": bloco2/s05-rag-avaliacao.md
+    - "S06 — Agentes em Produção": bloco2/s06-producao.md
+    - "📝 Quiz B2S01": bloco2/quiz-b2s01.md
+    - "📝 Quiz B2S02": bloco2/quiz-b2s02.md
+    - "📝 Quiz B2S03": bloco2/quiz-b2s03.md
+    - "📝 Quiz B2S04": bloco2/quiz-b2s04.md
+    - "📝 Quiz B2S05": bloco2/quiz-b2s05.md
+  - "🧪 Labs e Código":
+    - "Labs Práticos": labs.md
+    - "Repositório Unificado": repositorio.md
+    - "Soluções": solucoes.md
+  - "🔧 Ferramentas de IA": ferramentas.md
+  - "👥 Projetos das Equipes": projetos.md
