@@ -64,6 +64,13 @@
   .md-sidebar--primary .md-sidebar__scrollwrap {
     width: 15rem;
   }
+  .md-sidebar--secondary {
+    display: none;
+  }
+  .md-content {
+    max-width: 100%;
+    margin-right: 0;
+  }
 }
 
 .md-nav__item .md-nav__link {
