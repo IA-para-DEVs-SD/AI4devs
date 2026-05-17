@@ -19,15 +19,10 @@
 
 ## 🌍 Por que IA Agora?
 
-```mermaid
-flowchart LR
-    A[92 milhões<br/>de funções<br/>vão sumir] --> B[170 milhões<br/>de novos<br/>empregos]
-    
-    style A fill:#f44336,color:#fff
-    style B fill:#4caf50,color:#fff
-```
+O mercado de trabalho está em transformação acelerada. Segundo o **World Economic Forum (2025)**, a IA vai eliminar funções repetitivas mas criar ainda mais oportunidades para quem se adaptar:
 
-<small>Fonte: World Economic Forum, 2025</small>
+!!! quote "O impacto global"
+    **92 milhões** de funções vão desaparecer — mas **170 milhões** de novos empregos serão criados. O saldo é positivo para quem se preparar.
 
 | Dado | Fonte |
 |------|-------|
