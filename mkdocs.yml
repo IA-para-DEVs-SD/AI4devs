@@ -69,29 +69,30 @@ nav:
   - "🏠 Início": index.md
   - "📘 Bloco 1 — Fundamentos":
     - "S01 — Fundamentos de IA": bloco1/s01-fundamentos.md
-    - "S02 — Prompt Engineering": bloco1/s02-prompt-engineering.md
-    - "S03 — IA no Dev": bloco1/s03-ia-desenvolvimento.md
-  - "📗 Bloco 2 — Agentes":
+    - "S02 — Prompt e Context Engineering": bloco1/s02-prompt-engineering.md
+    - "S03 — IA no Desenvolvimento": bloco1/s03-ia-desenvolvimento.md
+  - "📗 Bloco 2 — Agentes e Automação":
     - "S01 — Tools e ReAct": bloco2/s01-tools-react.md
-    - "S02 — Memória": bloco2/s02-memoria-orquestracao.md
-    - "S03 — Low Code": bloco2/s03-lowcode-monitoramento.md
+    - "S02 — Memória e Orquestração": bloco2/s02-memoria-orquestracao.md
+    - "S03 — Low Code e Monitoramento": bloco2/s03-lowcode-monitoramento.md
     - "S04 — MCP e LangGraph": bloco2/s04-mcp-langgraph.md
     - "S05 — RAG e Avaliação": bloco2/s05-rag-avaliacao.md
-    - "S06 — Produção": bloco2/s06-producao.md
+    - "S06 — Agentes em Produção": bloco2/s06-producao.md
   - "🧪 Labs":
     - "Labs Práticos": labs.md
     - "Repositório": repositorio.md
     - "Soluções": solucoes.md
-  - "🗺️ Roadmap": roadmap.md
+  - "🗺️ Roadmap AI Engineer": roadmap.md
   - "🔧 Ferramentas": ferramentas.md
   - "👥 Projetos": projetos.md
   - "📝 Quizzes":
     - "B1S01 — Fundamentos": bloco1/quiz-b1s01.md
-    - "B1S02 — Prompt": bloco1/quiz-b1s02.md
+    - "B1S02 — Prompt Engineering": bloco1/quiz-b1s02.md
     - "B1S03 — IA no Dev": bloco1/quiz-b1s03.md
-    - "B2S01 — Tools": bloco2/quiz-b2s01.md
+    - "B2S01 — Tools e ReAct": bloco2/quiz-b2s01.md
     - "B2S02 — Memória": bloco2/quiz-b2s02.md
     - "B2S03 — Low Code": bloco2/quiz-b2s03.md
-    - "B2S04 — MCP": bloco2/quiz-b2s04.md
-    - "B2S05 — RAG": bloco2/quiz-b2s05.md
+    - "B2S04 — MCP e LangGraph": bloco2/quiz-b2s04.md
+    - "B2S05 — RAG e Avaliação": bloco2/quiz-b2s05.md
+    - "B2S06 — Produção": bloco2/quiz-b2s06.md
     - "Quiz B2S06 — Produção": bloco2/quiz-b2s06.md
