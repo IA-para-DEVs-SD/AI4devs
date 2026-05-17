@@ -74,6 +74,76 @@ Teste seus conhecimentos sobre MCP, LangGraph e arquitetura de agentes.
 <div class="quiz-feedback" data-explanation="MCP é um padrão aberto — um servidor MCP escrito uma vez funciona com Claude, Kiro, Cursor ou qualquer cliente que implemente o protocolo."></div>
 </div>
 
+<div class="quiz-container" data-answer="b">
+<h3>Questão 6</h3>
+
+<p>O que é um "state" no LangGraph?</p>
+
+<ul class="quiz-options">
+  <li data-option="a"><strong>a.</strong> O estado do servidor onde o agente roda.</li>
+  <li data-option="b"><strong>b.</strong> Um objeto compartilhado entre nós do grafo que acumula informações ao longo da execução.</li>
+  <li data-option="c"><strong>c.</strong> O histórico de mensagens do chat.</li>
+  <li data-option="d"><strong>d.</strong> A configuração do modelo (temperature, max_tokens).</li>
+</ul>
+<div class="quiz-feedback" data-explanation="State no LangGraph é um TypedDict que flui entre nós — cada nó lê e modifica o estado, permitindo que informações persistam ao longo do grafo."></div>
+</div>
+
+<div class="quiz-container" data-answer="a">
+<h3>Questão 7</h3>
+
+<p>Qual a arquitetura do MCP (Model Context Protocol)?</p>
+
+<ul class="quiz-options">
+  <li data-option="a"><strong>a.</strong> Cliente (IDE/app) ↔ Servidor MCP (expõe tools/resources) — comunicação via JSON-RPC.</li>
+  <li data-option="b"><strong>b.</strong> Modelo ↔ Banco de dados — comunicação via SQL.</li>
+  <li data-option="c"><strong>c.</strong> Browser ↔ API REST — comunicação via HTTP.</li>
+  <li data-option="d"><strong>d.</strong> Agente ↔ Agente — comunicação via WebSocket.</li>
+</ul>
+<div class="quiz-feedback" data-explanation="MCP usa arquitetura cliente-servidor: o cliente (Claude, Kiro, etc) se conecta a servidores MCP que expõem tools, resources e prompts via protocolo JSON-RPC padronizado."></div>
+</div>
+
+<div class="quiz-container" data-answer="c">
+<h3>Questão 8</h3>
+
+<p>O que é um "checkpoint" no LangGraph?</p>
+
+<ul class="quiz-options">
+  <li data-option="a"><strong>a.</strong> Um ponto de validação de segurança.</li>
+  <li data-option="b"><strong>b.</strong> Um log de performance.</li>
+  <li data-option="c"><strong>c.</strong> Um snapshot do estado do grafo que permite retomar execução ou fazer rollback.</li>
+  <li data-option="d"><strong>d.</strong> Um teste unitário do nó.</li>
+</ul>
+<div class="quiz-feedback" data-explanation="Checkpoints salvam o estado completo do grafo em pontos específicos — permite pausar/retomar execuções longas, implementar human-in-the-loop e debugar."></div>
+</div>
+
+<div class="quiz-container" data-answer="d">
+<h3>Questão 9</h3>
+
+<p>Qual a vantagem de usar "conditional edges" no LangGraph?</p>
+
+<ul class="quiz-options">
+  <li data-option="a"><strong>a.</strong> Reduzem o número de nós necessários.</li>
+  <li data-option="b"><strong>b.</strong> Tornam o grafo mais rápido.</li>
+  <li data-option="c"><strong>c.</strong> Eliminam a necessidade de estado.</li>
+  <li data-option="d"><strong>d.</strong> Permitem que o fluxo tome caminhos diferentes baseado no resultado do nó anterior.</li>
+</ul>
+<div class="quiz-feedback" data-explanation="Conditional edges: 'se o resultado foi X, vá para nó A; se foi Y, vá para nó B'. Permite branching dinâmico baseado em decisões do LLM ou validações."></div>
+</div>
+
+<div class="quiz-container" data-answer="b">
+<h3>Questão 10</h3>
+
+<p>Por que MCP é comparado a um "USB-C para IA"?</p>
+
+<ul class="quiz-options">
+  <li data-option="a"><strong>a.</strong> Porque usa a mesma porta física.</li>
+  <li data-option="b"><strong>b.</strong> Porque é um padrão universal — uma integração funciona com qualquer cliente compatível, sem adaptadores.</li>
+  <li data-option="c"><strong>c.</strong> Porque transfere dados na mesma velocidade.</li>
+  <li data-option="d"><strong>d.</strong> Porque foi criado pela mesma empresa.</li>
+</ul>
+<div class="quiz-feedback" data-explanation="Assim como USB-C padronizou conectores, MCP padroniza como LLMs se conectam a ferramentas. Um servidor MCP funciona com Claude, Kiro, Cursor — sem reescrever código."></div>
+</div>
+
 <div class="quiz-score" style="display:none">
 <h2>🎯 Resultado Final</h2>
 <div class="score-number"></div>

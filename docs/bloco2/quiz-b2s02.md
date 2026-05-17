@@ -74,6 +74,76 @@ Teste seus conhecimentos sobre memória de agentes e orquestração multi-agente
 <div class="quiz-feedback" data-explanation="Handoff cirúrgico: passa resumo via messages[] (rápido e barato) e deixa detalhes no Qdrant para busca semântica quando necessário."></div>
 </div>
 
+<div class="quiz-container" data-answer="a">
+<h3>Questão 6</h3>
+
+<p>O que diferencia "Agentic RAG" do RAG clássico?</p>
+
+<ul class="quiz-options">
+  <li data-option="a"><strong>a.</strong> No Agentic RAG, o agente decide quando, onde e quantas vezes buscar — a busca é uma tool.</li>
+  <li data-option="b"><strong>b.</strong> Agentic RAG não usa embeddings.</li>
+  <li data-option="c"><strong>c.</strong> RAG clássico é mais preciso que Agentic RAG.</li>
+  <li data-option="d"><strong>d.</strong> Agentic RAG só funciona com Qdrant.</li>
+</ul>
+<div class="quiz-feedback" data-explanation="No RAG clássico a busca é um passo fixo. No Agentic RAG, o agente tem agência sobre a memória — decide se precisa buscar, em qual fonte, e se o resultado é suficiente."></div>
+</div>
+
+<div class="quiz-container" data-answer="d">
+<h3>Questão 7</h3>
+
+<p>Qual estratégia de gerenciamento de histórico balanceia recência e contexto antigo?</p>
+
+<ul class="quiz-options">
+  <li data-option="a"><strong>a.</strong> Trimming — remove as primeiras mensagens.</li>
+  <li data-option="b"><strong>b.</strong> Duplicação — repete mensagens importantes.</li>
+  <li data-option="c"><strong>c.</strong> Fine-tuning — treina o modelo com o histórico.</li>
+  <li data-option="d"><strong>d.</strong> Janela deslizante — últimas N mensagens + resumo do anterior.</li>
+</ul>
+<div class="quiz-feedback" data-explanation="Janela deslizante mantém mensagens recentes intactas e comprime as antigas em um resumo, equilibrando contexto histórico com recência."></div>
+</div>
+
+<div class="quiz-container" data-answer="b">
+<h3>Questão 8</h3>
+
+<p>No MemoryBank, o que o campo <code>pinned = true</code> faz?</p>
+
+<ul class="quiz-options">
+  <li data-option="a"><strong>a.</strong> Marca a memória como favorita na interface.</li>
+  <li data-option="b"><strong>b.</strong> Exclui a memória do processo de decaimento e remoção automática.</li>
+  <li data-option="c"><strong>c.</strong> Duplica a memória em outro banco.</li>
+  <li data-option="d"><strong>d.</strong> Aumenta o score da memória artificialmente.</li>
+</ul>
+<div class="quiz-feedback" data-explanation="Memórias pinned são protegidas do decaimento — usadas para regras de negócio, configurações e contextos críticos que devem persistir independente do acesso."></div>
+</div>
+
+<div class="quiz-container" data-answer="c">
+<h3>Questão 9</h3>
+
+<p>Qual padrão de orquestração é ideal quando tarefas são independentes e podem rodar simultaneamente?</p>
+
+<ul class="quiz-options">
+  <li data-option="a"><strong>a.</strong> Sequencial (pipeline).</li>
+  <li data-option="b"><strong>b.</strong> Hierárquico.</li>
+  <li data-option="c"><strong>c.</strong> Paralelo (fan-out → agregador).</li>
+  <li data-option="d"><strong>d.</strong> ReAct loop.</li>
+</ul>
+<div class="quiz-feedback" data-explanation="Paralelo: o orquestrador dispara múltiplos agentes simultaneamente e um agregador combina os resultados. Ganho real de velocidade quando não há dependência entre tarefas."></div>
+</div>
+
+<div class="quiz-container" data-answer="a">
+<h3>Questão 10</h3>
+
+<p>Qual erro clássico de multi-agente ocorre quando agentes leem e escrevem na mesma coleção sem namespacing?</p>
+
+<ul class="quiz-options">
+  <li data-option="a"><strong>a.</strong> Memória compartilhada sem isolamento — agentes contaminam o contexto uns dos outros.</li>
+  <li data-option="b"><strong>b.</strong> Loop sem saída — agentes chamam uns aos outros infinitamente.</li>
+  <li data-option="c"><strong>c.</strong> Context overflow — a coleção fica grande demais.</li>
+  <li data-option="d"><strong>d.</strong> Escalar cedo demais — muitos agentes sem necessidade.</li>
+</ul>
+<div class="quiz-feedback" data-explanation="Sem namespacing, o Agente A pode recuperar memórias irrelevantes escritas pelo Agente B, poluindo seu contexto e gerando respostas incoerentes."></div>
+</div>
+
 <div class="quiz-score" style="display:none">
 <h2>🎯 Resultado Final</h2>
 <div class="score-number"></div>

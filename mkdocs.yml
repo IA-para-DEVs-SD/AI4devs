@@ -86,10 +86,12 @@ nav:
   - "🔧 Ferramentas": ferramentas.md
   - "👥 Projetos": projetos.md
   - "📝 Quizzes":
-    - "Quiz B1S02": bloco1/quiz-b1s02.md
-    - "Quiz B1S03": bloco1/quiz-b1s03.md
-    - "Quiz B2S01": bloco2/quiz-b2s01.md
-    - "Quiz B2S02": bloco2/quiz-b2s02.md
-    - "Quiz B2S03": bloco2/quiz-b2s03.md
-    - "Quiz B2S04": bloco2/quiz-b2s04.md
-    - "Quiz B2S05": bloco2/quiz-b2s05.md
+    - "Quiz B1S01 — Fundamentos": bloco1/quiz-b1s01.md
+    - "Quiz B1S02 — Prompt Engineering": bloco1/quiz-b1s02.md
+    - "Quiz B1S03 — IA no Dev": bloco1/quiz-b1s03.md
+    - "Quiz B2S01 — Tools e ReAct": bloco2/quiz-b2s01.md
+    - "Quiz B2S02 — Memória": bloco2/quiz-b2s02.md
+    - "Quiz B2S03 — Low Code": bloco2/quiz-b2s03.md
+    - "Quiz B2S04 — MCP e LangGraph": bloco2/quiz-b2s04.md
+    - "Quiz B2S05 — RAG e Avaliação": bloco2/quiz-b2s05.md
+    - "Quiz B2S06 — Produção": bloco2/quiz-b2s06.md

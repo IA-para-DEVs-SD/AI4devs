@@ -74,6 +74,76 @@ Teste seus conhecimentos sobre IA aplicada ao desenvolvimento de software.
 <div class="quiz-feedback" data-explanation="IA gera bons rascunhos de documentação, mas pode inventar comportamentos ou omitir edge cases — revisão humana é essencial."></div>
 </div>
 
+<div class="quiz-container" data-answer="d">
+<h3>Questão 6</h3>
+
+<p>O que é um PRD (Product Requirements Document) e como a IA pode ajudar?</p>
+
+<ul class="quiz-options">
+  <li data-option="a"><strong>a.</strong> Um documento de deploy. A IA gera o Dockerfile.</li>
+  <li data-option="b"><strong>b.</strong> Um contrato legal. A IA não pode ajudar.</li>
+  <li data-option="c"><strong>c.</strong> Um plano de testes. A IA executa os testes.</li>
+  <li data-option="d"><strong>d.</strong> Um documento de requisitos do produto. A IA pode gerar rascunhos a partir de descrições de alto nível.</li>
+</ul>
+<div class="quiz-feedback" data-explanation="PRD define o que será construído e por quê. A IA gera bons rascunhos de PRD a partir de briefings, mas o PM precisa validar prioridades e viabilidade."></div>
+</div>
+
+<div class="quiz-container" data-answer="b">
+<h3>Questão 7</h3>
+
+<p>Qual o maior risco de usar IA para refatoração de código legado?</p>
+
+<ul class="quiz-options">
+  <li data-option="a"><strong>a.</strong> O código refatorado sempre fica mais lento.</li>
+  <li data-option="b"><strong>b.</strong> A IA pode alterar comportamento implícito que não está documentado nem testado.</li>
+  <li data-option="c"><strong>c.</strong> Refatoração com IA viola licenças open-source.</li>
+  <li data-option="d"><strong>d.</strong> A IA não consegue ler código com mais de 100 linhas.</li>
+</ul>
+<div class="quiz-feedback" data-explanation="Código legado frequentemente tem comportamentos implícitos (side effects, edge cases) que não estão em testes. A IA pode 'limpar' código e quebrar funcionalidade silenciosamente."></div>
+</div>
+
+<div class="quiz-container" data-answer="a">
+<h3>Questão 8</h3>
+
+<p>Como a IA pode auxiliar na revisão de código (code review)?</p>
+
+<ul class="quiz-options">
+  <li data-option="a"><strong>a.</strong> Identificando padrões problemáticos, bugs potenciais e sugerindo melhorias antes do review humano.</li>
+  <li data-option="b"><strong>b.</strong> Aprovando PRs automaticamente sem intervenção.</li>
+  <li data-option="c"><strong>c.</strong> Substituindo completamente revisores humanos.</li>
+  <li data-option="d"><strong>d.</strong> Apenas formatando o código com prettier.</li>
+</ul>
+<div class="quiz-feedback" data-explanation="IA como primeiro filtro no code review: detecta bugs óbvios, violações de padrão e sugere melhorias. O reviewer humano foca em lógica de negócio e arquitetura."></div>
+</div>
+
+<div class="quiz-container" data-answer="c">
+<h3>Questão 9</h3>
+
+<p>Qual abordagem é mais segura ao usar IA para gerar queries SQL?</p>
+
+<ul class="quiz-options">
+  <li data-option="a"><strong>a.</strong> Executar diretamente em produção — o modelo não erra.</li>
+  <li data-option="b"><strong>b.</strong> Confiar no modelo se ele disser "esta query é segura".</li>
+  <li data-option="c"><strong>c.</strong> Gerar a query, revisar, testar em ambiente seguro e validar com EXPLAIN antes de usar.</li>
+  <li data-option="d"><strong>d.</strong> Usar apenas queries hardcoded e nunca gerar dinamicamente.</li>
+</ul>
+<div class="quiz-feedback" data-explanation="IA gera SQL plausível mas pode errar nomes de colunas, lógica de JOINs ou criar queries ineficientes. Sempre validar com schema real e EXPLAIN."></div>
+</div>
+
+<div class="quiz-container" data-answer="d">
+<h3>Questão 10</h3>
+
+<p>O que é o padrão "Human-in-the-Loop" no desenvolvimento com IA?</p>
+
+<ul class="quiz-options">
+  <li data-option="a"><strong>a.</strong> O humano treina o modelo manualmente.</li>
+  <li data-option="b"><strong>b.</strong> O humano só intervém quando há erro de compilação.</li>
+  <li data-option="c"><strong>c.</strong> O humano é removido do processo após o setup inicial.</li>
+  <li data-option="d"><strong>d.</strong> O humano valida, corrige e direciona a IA em pontos críticos do fluxo.</li>
+</ul>
+<div class="quiz-feedback" data-explanation="Human-in-the-Loop: a IA gera, o humano valida. O dev não é substituído — ele orquestra, valida decisões críticas e garante qualidade."></div>
+</div>
+
 <div class="quiz-score" style="display:none">
 <h2>🎯 Resultado Final</h2>
 <div class="score-number"></div>

@@ -74,6 +74,76 @@ Teste seus conhecimentos sobre RAG, integração de tools e avaliação.
 <div class="quiz-feedback" data-explanation="Cada modelo de embedding cria um espaço vetorial próprio. Misturar modelos é como comparar coordenadas GPS com CEPs — os números não são compatíveis."></div>
 </div>
 
+<div class="quiz-container" data-answer="c">
+<h3>Questão 6</h3>
+
+<p>O que é "retrieval recall" na avaliação de um sistema RAG?</p>
+
+<ul class="quiz-options">
+  <li data-option="a"><strong>a.</strong> A velocidade com que documentos são recuperados.</li>
+  <li data-option="b"><strong>b.</strong> O custo total de embeddings gerados.</li>
+  <li data-option="c"><strong>c.</strong> A proporção de documentos relevantes que foram efetivamente recuperados pelo sistema.</li>
+  <li data-option="d"><strong>d.</strong> O número total de documentos no banco vetorial.</li>
+</ul>
+<div class="quiz-feedback" data-explanation="Retrieval recall: dos documentos que DEVERIAM ser encontrados, quantos o sistema realmente encontrou? Recall baixo = informação relevante não chega ao LLM."></div>
+</div>
+
+<div class="quiz-container" data-answer="a">
+<h3>Questão 7</h3>
+
+<p>Qual a diferença entre avaliação "reference-based" e "reference-free"?</p>
+
+<ul class="quiz-options">
+  <li data-option="a"><strong>a.</strong> Reference-based compara com uma resposta esperada; reference-free avalia qualidade sem gabarito.</li>
+  <li data-option="b"><strong>b.</strong> Reference-based usa RAG; reference-free não.</li>
+  <li data-option="c"><strong>c.</strong> Reference-free é sempre mais preciso.</li>
+  <li data-option="d"><strong>d.</strong> Não há diferença prática entre os dois.</li>
+</ul>
+<div class="quiz-feedback" data-explanation="Reference-based: tem 'ground truth' para comparar (ex: resposta correta). Reference-free: avalia coerência, tom e formato sem gabarito — útil quando não há resposta única correta."></div>
+</div>
+
+<div class="quiz-container" data-answer="d">
+<h3>Questão 8</h3>
+
+<p>O que é "answer relevance" na avaliação de RAG?</p>
+
+<ul class="quiz-options">
+  <li data-option="a"><strong>a.</strong> Se os documentos recuperados são recentes.</li>
+  <li data-option="b"><strong>b.</strong> Se o modelo respondeu rápido o suficiente.</li>
+  <li data-option="c"><strong>c.</strong> Se o embedding foi gerado corretamente.</li>
+  <li data-option="d"><strong>d.</strong> Se a resposta gerada realmente responde à pergunta do usuário.</li>
+</ul>
+<div class="quiz-feedback" data-explanation="Answer relevance: o modelo pode gerar texto fiel aos documentos mas que não responde a pergunta feita. Mede se a resposta é útil para o que foi perguntado."></div>
+</div>
+
+<div class="quiz-container" data-answer="b">
+<h3>Questão 9</h3>
+
+<p>Por que usar "metadata filtering" junto com busca vetorial no RAG?</p>
+
+<ul class="quiz-options">
+  <li data-option="a"><strong>a.</strong> Para reduzir o tamanho dos embeddings.</li>
+  <li data-option="b"><strong>b.</strong> Para restringir a busca a um subconjunto relevante (ex: só docs do agente X, ou só de 2024).</li>
+  <li data-option="c"><strong>c.</strong> Para acelerar a geração de embeddings.</li>
+  <li data-option="d"><strong>d.</strong> Para substituir a busca por similaridade.</li>
+</ul>
+<div class="quiz-feedback" data-explanation="Filtros de metadata combinam busca semântica com restrições exatas — ex: buscar por similaridade MAS apenas em documentos do departamento financeiro."></div>
+</div>
+
+<div class="quiz-container" data-answer="a">
+<h3>Questão 10</h3>
+
+<p>Qual o risco de usar limit muito alto (ex: top-20) na busca vetorial do RAG?</p>
+
+<ul class="quiz-options">
+  <li data-option="a"><strong>a.</strong> Documentos irrelevantes poluem o contexto e degradam a qualidade da resposta (context rot).</li>
+  <li data-option="b"><strong>b.</strong> O banco vetorial fica mais lento permanentemente.</li>
+  <li data-option="c"><strong>c.</strong> O modelo se recusa a responder com muitos documentos.</li>
+  <li data-option="d"><strong>d.</strong> Não há risco — mais contexto é sempre melhor.</li>
+</ul>
+<div class="quiz-feedback" data-explanation="Mais documentos ≠ melhor resposta. Documentos de baixa relevância diluem o sinal e confundem o modelo. Best practice: limit=3-5 com re-ranking."></div>
+</div>
+
 <div class="quiz-score" style="display:none">
 <h2>🎯 Resultado Final</h2>
 <div class="score-number"></div>
