@@ -74,6 +74,76 @@ Teste seus conhecimentos sobre LLMs, tokens, transformers e conceitos fundamenta
 <div class="quiz-feedback" data-explanation="Pré-treinamento: bilhões de tokens da internet → modelo generalista. Fine-tuning: milhares de exemplos específicos → modelo especializado em uma tarefa."></div>
 </div>
 
+<div class="quiz-container" data-answer="b">
+<h3>Questão 6</h3>
+
+<p>O que significa dizer que um LLM é "autoregressive"?</p>
+
+<ul class="quiz-options">
+  <li data-option="a"><strong>a.</strong> Ele se corrige automaticamente quando erra.</li>
+  <li data-option="b"><strong>b.</strong> Ele gera texto um token por vez, usando os tokens anteriores como contexto.</li>
+  <li data-option="c"><strong>c.</strong> Ele regride para versões anteriores quando detecta alucinação.</li>
+  <li data-option="d"><strong>d.</strong> Ele aprende continuamente com cada conversa.</li>
+</ul>
+<div class="quiz-feedback" data-explanation="Autoregressive: o modelo prediz o próximo token baseado em todos os anteriores. Gera texto sequencialmente, token a token, sem 'ver o futuro'."></div>
+</div>
+
+<div class="quiz-container" data-answer="d">
+<h3>Questão 7</h3>
+
+<p>Qual a relação entre tamanho da context window e custo?</p>
+
+<ul class="quiz-options">
+  <li data-option="a"><strong>a.</strong> Janelas maiores são sempre mais baratas.</li>
+  <li data-option="b"><strong>b.</strong> O custo é fixo independente do tamanho do contexto.</li>
+  <li data-option="c"><strong>c.</strong> Só o output é cobrado, o input é gratuito.</li>
+  <li data-option="d"><strong>d.</strong> Mais tokens no contexto = mais custo, pois APIs cobram por token processado.</li>
+</ul>
+<div class="quiz-feedback" data-explanation="APIs cobram por token de input e output. Contexto grande = mais tokens processados a cada chamada = custo maior. E o custo cresce a cada turno pois o histórico é reenviado."></div>
+</div>
+
+<div class="quiz-container" data-answer="a">
+<h3>Questão 8</h3>
+
+<p>O que é "alucinação" em LLMs?</p>
+
+<ul class="quiz-options">
+  <li data-option="a"><strong>a.</strong> O modelo gera informação que parece plausível mas é factualmente incorreta ou inventada.</li>
+  <li data-option="b"><strong>b.</strong> O modelo se recusa a responder perguntas difíceis.</li>
+  <li data-option="c"><strong>c.</strong> O modelo repete a mesma frase em loop.</li>
+  <li data-option="d"><strong>d.</strong> O modelo gera texto em idioma diferente do solicitado.</li>
+</ul>
+<div class="quiz-feedback" data-explanation="Alucinação: o modelo 'inventa' fatos com alta confiança. Acontece porque ele otimiza para texto plausível, não para verdade factual."></div>
+</div>
+
+<div class="quiz-container" data-answer="c">
+<h3>Questão 9</h3>
+
+<p>Qual o papel do desenvolvedor na era dos LLMs, segundo o conceito de "dev como orquestrador"?</p>
+
+<ul class="quiz-options">
+  <li data-option="a"><strong>a.</strong> Escrever todo o código manualmente sem usar IA.</li>
+  <li data-option="b"><strong>b.</strong> Treinar modelos de linguagem do zero.</li>
+  <li data-option="c"><strong>c.</strong> Definir objetivos, impor limites, validar resultados e orquestrar agentes de IA.</li>
+  <li data-option="d"><strong>d.</strong> Apenas revisar código gerado sem entender o que faz.</li>
+</ul>
+<div class="quiz-feedback" data-explanation="O dev evolui de executor para orquestrador: decide O QUÊ e POR QUÊ, define limites de autonomia, valida outputs e garante qualidade — a IA executa o COMO."></div>
+</div>
+
+<div class="quiz-container" data-answer="b">
+<h3>Questão 10</h3>
+
+<p>Por que <code>temperature=0.9</code> é usada para geração criativa mas não para extração de dados?</p>
+
+<ul class="quiz-options">
+  <li data-option="a"><strong>a.</strong> Porque temperature alta torna o modelo mais inteligente.</li>
+  <li data-option="b"><strong>b.</strong> Porque temperature alta aumenta a aleatoriedade na seleção de tokens — bom para criatividade, ruim para precisão.</li>
+  <li data-option="c"><strong>c.</strong> Porque temperature alta reduz o custo de tokens.</li>
+  <li data-option="d"><strong>d.</strong> Porque temperature alta faz o modelo acessar mais dados de treinamento.</li>
+</ul>
+<div class="quiz-feedback" data-explanation="Temperature controla a 'ousadia' do modelo. Alta = mais variação e criatividade. Baixa = mais previsível e preciso. Para extração/classificação, use 0; para brainstorming, use 0.7-0.9."></div>
+</div>
+
 <div class="quiz-score" style="display:none">
 <h2>🎯 Resultado Final</h2>
 <div class="score-number"></div>
