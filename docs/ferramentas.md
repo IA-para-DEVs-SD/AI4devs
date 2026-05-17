@@ -89,8 +89,100 @@ Catálogo de ferramentas organizadas por categoria. Use como referência para es
 | **N8N** | Automação visual (self-hosted) | [n8n.io](https://n8n.io/) |
 | **Flowise** | Agentes LangChain visuais | [flowiseai.com](https://flowiseai.com/) |
 | **LangGraph** | Grafos de agentes (Python) | [langchain-ai.github.io/langgraph](https://langchain-ai.github.io/langgraph/) |
-| **Langfuse** | Observabilidade de LLMs | [langfuse.com](https://langfuse.com/) |
-| **DeepEval** | Avaliação de RAG/agentes | [deepeval.com](https://docs.confident-ai.com/) |
+| **LangChain** | Framework de chains e agentes | [langchain.com](https://www.langchain.com/) |
+| **CrewAI** | Multi-agente com roles e tasks | [crewai.com](https://www.crewai.com/) |
+| **AutoGen** | Multi-agente conversacional (Microsoft) | [github.com/microsoft/autogen](https://github.com/microsoft/autogen) |
+| **Semantic Kernel** | SDK de IA para .NET/Java/Python (Microsoft) | [learn.microsoft.com/semantic-kernel](https://learn.microsoft.com/en-us/semantic-kernel/) |
+| **OpenAI Assistants API** | Agentes stateful com threads e tools | [platform.openai.com/docs/assistants](https://platform.openai.com/docs/assistants/overview) |
+| **Dify** | Plataforma open-source para apps de IA | [dify.ai](https://dify.ai/) |
+
+---
+
+## 🗄️ Vector Databases
+
+| Ferramenta | Diferencial | Link |
+|-----------|-------------|------|
+| **Qdrant** | Open-source, Rust, filtros avançados | [qdrant.tech](https://qdrant.tech/) |
+| **Pinecone** | Managed, serverless, escala automática | [pinecone.io](https://www.pinecone.io/) |
+| **Weaviate** | Open-source, hybrid search nativo | [weaviate.io](https://weaviate.io/) |
+| **ChromaDB** | Leve, embeddable, ideal para protótipos | [trychroma.com](https://www.trychroma.com/) |
+| **Milvus** | Open-source, alta escala (bilhões de vetores) | [milvus.io](https://milvus.io/) |
+| **pgvector** | Extensão PostgreSQL (sem infra extra) | [github.com/pgvector](https://github.com/pgvector/pgvector) |
+
+---
+
+## 🧪 Avaliação e Testes de IA
+
+| Ferramenta | Função | Link |
+|-----------|--------|------|
+| **Langfuse** | Observabilidade de LLMs (open-source) | [langfuse.com](https://langfuse.com/) |
+| **RAGAS** | Framework de avaliação de RAG | [docs.ragas.io](https://docs.ragas.io/) |
+| **DeepEval** | Unit tests para LLMs | [docs.confident-ai.com](https://docs.confident-ai.com/) |
+| **Promptfoo** | Eval de prompts com CI/CD | [promptfoo.dev](https://www.promptfoo.dev/) |
+| **LangSmith** | Tracing e eval (LangChain) | [smith.langchain.com](https://smith.langchain.com/) |
+| **Weights & Biases** | Experiment tracking e eval | [wandb.ai](https://wandb.ai/) |
+| **Braintrust** | Eval + logging + playground | [braintrust.dev](https://www.braintrust.dev/) |
+
+---
+
+## 🏠 Modelos Locais e Open-Source
+
+| Ferramenta | Função | Link |
+|-----------|--------|------|
+| **Ollama** | Rodar LLMs localmente (1 comando) | [ollama.com](https://ollama.com/) |
+| **LM Studio** | Interface desktop para modelos locais | [lmstudio.ai](https://lmstudio.ai/) |
+| **vLLM** | Serving de alta performance | [vllm.ai](https://vllm.ai/) |
+| **llama.cpp** | Inferência em CPU (C++) | [github.com/ggerganov/llama.cpp](https://github.com/ggerganov/llama.cpp) |
+| **Hugging Face** | Hub de modelos open-source | [huggingface.co](https://huggingface.co/) |
+| **Open Router** | API unificada para 100+ modelos | [openrouter.ai](https://openrouter.ai/) |
+
+### Modelos Populares (Open-Source)
+
+| Modelo | Parâmetros | Melhor para | Link |
+|--------|-----------|-------------|------|
+| **Llama 3.1** | 8B / 70B / 405B | Uso geral, código | [llama.meta.com](https://llama.meta.com/) |
+| **Mistral / Mixtral** | 7B / 8x7B | Eficiência, multilingual | [mistral.ai](https://mistral.ai/) |
+| **Gemma 2** | 2B / 9B / 27B | Leve, mobile, edge | [ai.google.dev/gemma](https://ai.google.dev/gemma) |
+| **Qwen 2.5** | 0.5B–72B | Código, math, multilingual | [qwenlm.github.io](https://qwenlm.github.io/) |
+| **DeepSeek Coder** | 6.7B / 33B | Código especializado | [deepseek.com](https://www.deepseek.com/) |
+| **Phi-3** | 3.8B / 14B | Ultra-leve, edge | [azure.microsoft.com/phi](https://azure.microsoft.com/en-us/products/phi) |
+
+---
+
+## 🔊 Voice e Audio AI
+
+| Ferramenta | Função | Link |
+|-----------|--------|------|
+| **ElevenLabs** | Text-to-Speech realista, clonagem de voz | [elevenlabs.io](https://elevenlabs.io/) |
+| **OpenAI Whisper** | Speech-to-Text (open-source) | [github.com/openai/whisper](https://github.com/openai/whisper) |
+| **OpenAI TTS** | Text-to-Speech via API | [platform.openai.com/docs/guides/text-to-speech](https://platform.openai.com/docs/guides/text-to-speech) |
+| **AssemblyAI** | Transcrição + análise de áudio | [assemblyai.com](https://www.assemblyai.com/) |
+| **Deepgram** | STT em tempo real, baixa latência | [deepgram.com](https://deepgram.com/) |
+
+---
+
+## 🛡️ Segurança e Guardrails
+
+| Ferramenta | Função | Link |
+|-----------|--------|------|
+| **Guardrails AI** | Validação de output com validators | [guardrailsai.com](https://www.guardrailsai.com/) |
+| **NeMo Guardrails** | Guardrails conversacionais (NVIDIA) | [github.com/NVIDIA/NeMo-Guardrails](https://github.com/NVIDIA/NeMo-Guardrails) |
+| **Rebuff** | Detecção de prompt injection | [rebuff.ai](https://www.rebuff.ai/) |
+| **LLM Guard** | Sanitização de input/output | [llm-guard.com](https://llm-guard.com/) |
+| **Lakera Guard** | Proteção contra ataques a LLMs | [lakera.ai](https://www.lakera.ai/) |
+
+---
+
+## ☁️ Plataformas Cloud para IA
+
+| Plataforma | Serviços de IA | Link |
+|-----------|----------------|------|
+| **AWS Bedrock** | Acesso a múltiplos LLMs (Claude, Llama, Titan) | [aws.amazon.com/bedrock](https://aws.amazon.com/bedrock/) |
+| **Azure OpenAI** | GPT-4, embeddings, fine-tuning enterprise | [azure.microsoft.com/openai](https://azure.microsoft.com/en-us/products/ai-services/openai-service) |
+| **Google Vertex AI** | Gemini, embeddings, MLOps | [cloud.google.com/vertex-ai](https://cloud.google.com/vertex-ai) |
+| **Replicate** | Deploy de modelos open-source (pay per use) | [replicate.com](https://replicate.com/) |
+| **Modal** | Serverless GPU para inferência/training | [modal.com](https://modal.com/) |
+| **Together AI** | API para modelos open-source | [together.ai](https://www.together.ai/) |
 
 ---
 
