@@ -98,6 +98,13 @@
 .mermaid text.nodeLabel {
   font-weight: 700 !important;
 }
+
+/* Mermaid: centralizar diagramas */
+.mermaid {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
 .md-content {
   animation: fadeIn 0.3s ease;
 }
