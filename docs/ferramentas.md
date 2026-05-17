@@ -104,3 +104,67 @@ Catálogo de ferramentas organizadas por categoria. Use como referência para es
     - [ ] Tem versão gratuita funcional ou cabe no orçamento?
     - [ ] Me ajuda a ser **mais produtivo** sem criar dependência?
     - [ ] Posso **validar** o output (não confiar cegamente)?
+
+---
+
+## 🧪 Playgrounds e APIs (para praticar)
+
+| Plataforma | O que oferece | Link |
+|-----------|---------------|------|
+| **OpenAI Playground** | Testar GPT-4o, function calling, JSON mode | [platform.openai.com/playground](https://platform.openai.com/playground) |
+| **Google AI Studio** | Testar Gemini, multimodal, grounding | [aistudio.google.com](https://aistudio.google.com/) |
+| **Anthropic Console** | Testar Claude, prompt caching, tools | [console.anthropic.com](https://console.anthropic.com/) |
+| **Groq Playground** | Inferência ultra-rápida (Llama, Mixtral) | [console.groq.com](https://console.groq.com/) |
+| **HuggingFace Spaces** | Demos de modelos open-source | [huggingface.co/spaces](https://huggingface.co/spaces) |
+| **Qdrant Cloud** | Vector DB gratuito (1GB free tier) | [cloud.qdrant.io](https://cloud.qdrant.io/) |
+| **Ollama** | Rodar LLMs localmente (Llama, Mistral) | [ollama.com](https://ollama.com/) |
+
+---
+
+## 📚 Aprendizado e Referências
+
+### Cursos e Tutoriais Gratuitos
+
+| Recurso | Conteúdo | Link |
+|---------|----------|------|
+| **Anthropic Prompt Engineering** | Notebooks interativos de prompt engineering | [github.com/anthropics/prompt-eng-interactive-tutorial](https://github.com/anthropics/prompt-eng-interactive-tutorial) |
+| **DeepLearning.AI Short Courses** | Cursos curtos com Andrew Ng (LangChain, RAG, Agents) | [deeplearning.ai/short-courses](https://www.deeplearning.ai/short-courses/) |
+| **LangChain Academy** | Curso oficial de LangGraph e agentes | [academy.langchain.com](https://academy.langchain.com/) |
+| **Hugging Face NLP Course** | NLP do zero ao avançado | [huggingface.co/learn/nlp-course](https://huggingface.co/learn/nlp-course) |
+| **Microsoft AI for Beginners** | 24 lições de IA (GitHub) | [github.com/microsoft/AI-For-Beginners](https://github.com/microsoft/AI-For-Beginners) |
+| **Google Machine Learning Crash Course** | ML fundamentals | [developers.google.com/machine-learning](https://developers.google.com/machine-learning/crash-course) |
+
+### Papers Essenciais
+
+| Paper | Por que importa | Link |
+|-------|-----------------|------|
+| **Attention Is All You Need** (2017) | Arquitetura Transformer — base de todos os LLMs | [arxiv.org/abs/1706.03762](https://arxiv.org/abs/1706.03762) |
+| **ReAct** (2022) | Padrão Reasoning + Acting para agentes | [arxiv.org/abs/2210.03629](https://arxiv.org/abs/2210.03629) |
+| **RAG** (2020) | Retrieval-Augmented Generation original | [arxiv.org/abs/2005.11401](https://arxiv.org/abs/2005.11401) |
+| **Lost in the Middle** (2023) | LLMs ignoram info no meio do contexto | [arxiv.org/abs/2307.03172](https://arxiv.org/abs/2307.03172) |
+| **MemoryBank** (2023) | Memória com esquecimento inspirado em Ebbinghaus | [arxiv.org/abs/2305.10250](https://arxiv.org/abs/2305.10250) |
+| **Cognitive Architectures for Language Agents** (2023) | Framework teórico para agentes com memória | [arxiv.org/abs/2309.02427](https://arxiv.org/abs/2309.02427) |
+
+### Documentação Oficial (Ferramentas do Curso)
+
+| Ferramenta | Docs | Link |
+|-----------|------|------|
+| **Qdrant** | Vector database usado no curso | [qdrant.tech/documentation](https://qdrant.tech/documentation/) |
+| **LangGraph** | Framework de agentes com grafos | [langchain-ai.github.io/langgraph](https://langchain-ai.github.io/langgraph/) |
+| **MCP (Model Context Protocol)** | Protocolo para conectar LLMs a tools | [modelcontextprotocol.io](https://modelcontextprotocol.io/) |
+| **DSPy** | Prompt optimization automático | [dspy.ai](https://dspy.ai/) |
+| **Flowise** | Builder visual de agentes | [docs.flowiseai.com](https://docs.flowiseai.com/) |
+| **N8N** | Automação de workflows | [docs.n8n.io](https://docs.n8n.io/) |
+| **OpenAI API** | Referência completa da API | [platform.openai.com/docs](https://platform.openai.com/docs) |
+| **Anthropic API** | Referência Claude API | [docs.anthropic.com](https://docs.anthropic.com/) |
+| **Google Gemini API** | Referência Gemini API | [ai.google.dev/docs](https://ai.google.dev/docs) |
+
+### Comunidades e Newsletters
+
+| Recurso | Descrição | Link |
+|---------|-----------|------|
+| **AI Engineer Newsletter** | Novidades semanais para AI Engineers | [aiengineering.substack.com](https://aiengineering.substack.com/) |
+| **The Batch (Andrew Ng)** | Newsletter semanal de IA | [deeplearning.ai/the-batch](https://www.deeplearning.ai/the-batch/) |
+| **Simon Willison's Blog** | Análises práticas de LLMs e tools | [simonwillison.net](https://simonwillison.net/) |
+| **Latent Space Podcast** | Podcast técnico sobre AI Engineering | [latent.space](https://www.latent.space/) |
+| **r/LocalLLaMA** | Comunidade de modelos locais | [reddit.com/r/LocalLLaMA](https://www.reddit.com/r/LocalLLaMA/) |

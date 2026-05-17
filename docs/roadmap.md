@@ -232,3 +232,20 @@ Progresso:         ████████████░░░░ ~60%
     2. **Avaliação** — RAGAS + DeepEval (essencial para produção)
     3. **Observabilidade** — Langfuse (open-source, fácil de começar)
     4. **Modelos locais** — Ollama (custo zero para experimentar)
+
+---
+
+## 🔗 Links Rápidos por Tópico
+
+| Tópico | Recurso | Link |
+|--------|---------|------|
+| Embeddings | OpenAI Embeddings Guide | [platform.openai.com/docs/guides/embeddings](https://platform.openai.com/docs/guides/embeddings) |
+| Vector DB | Qdrant Quickstart | [qdrant.tech/documentation/quickstart](https://qdrant.tech/documentation/quickstart/) |
+| RAG | LangChain RAG Tutorial | [python.langchain.com/docs/tutorials/rag](https://python.langchain.com/docs/tutorials/rag/) |
+| Agentes | LangGraph Getting Started | [langchain-ai.github.io/langgraph/tutorials](https://langchain-ai.github.io/langgraph/tutorials/) |
+| MCP | Spec + SDKs oficiais | [modelcontextprotocol.io](https://modelcontextprotocol.io/) |
+| Avaliação | RAGAS docs | [docs.ragas.io](https://docs.ragas.io/) |
+| Observabilidade | Langfuse Quickstart | [langfuse.com/docs/get-started](https://langfuse.com/docs/get-started) |
+| Modelos locais | Ollama Library | [ollama.com/library](https://ollama.com/library) |
+| Fine-tuning | OpenAI Fine-tuning Guide | [platform.openai.com/docs/guides/fine-tuning](https://platform.openai.com/docs/guides/fine-tuning) |
+| DSPy | DSPy Docs | [dspy.ai](https://dspy.ai/) |
