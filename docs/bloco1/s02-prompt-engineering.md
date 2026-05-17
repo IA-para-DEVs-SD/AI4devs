@@ -589,49 +589,19 @@ A disciplina de **curar sistematicamente** quais informações um modelo de ling
 | **Formatar** | Como estruturar e apresentar o contexto ao modelo |
 | **Manter** | Como gerenciar o contexto ao longo de interações |
 
-> "Funciona automaticamente e em escala — não depende de workflows pré-definidos"
-
 #### O que é Contexto?
 
 Contexto é o **conjunto completo de tokens** que um LLM tem acesso ao gerar uma resposta:
 
-- 📄 Instruções do sistema
+- 📄 Instruções do sistema (system prompt)
 - 💬 Mensagens do usuário
 - 🕐 Histórico da conversa
 - 🔧 Definições de ferramentas
-- 📋 Documentos recuperados
+- 📋 Documentos recuperados (RAG)
 - 💡 Exemplos e memórias
-
-#### Origem do Termo
-
-| Quando | Quem | Contribuição |
-|--------|------|--------------|
-| 2023 | Dan Shipper (Every Media CEO) | "Knowledge Orchestration" identificado como gargalo crítico na adoção de IA |
-| Abr 2025 | Ankur Goyal (Fundador — Braintrust) | Cunhou o termo "Context Engineering": trazer a informação certa no formato certo ao LLM |
-| Mid 2025 | Tobi Lütke (CEO — Shopify) | Popularizou o termo: "descreve melhor a habilidade central — a arte de fornecer contexto" |
-| Mid 2025 | Andrej Karpathy (Ex-Diretor de IA — Tesla) | "A delicada arte e ciência de preencher o contexto com exatamente a informação certa" |
-
-**Adoção em larga escala** — Após 2025, líderes da indústria endossaram o conceito:
-
-- **Harrison Chase** (Co-Fundador — LangChain)
-- **Walden Yan** (Co-Fundador — Cognition AI / Devin)
-- **Simon Willison** (Co-Criador do Django)
 
 !!! info "Distinção essencial"
     **Prompt Engineering** → escrever prompts eficazes | **Context Engineering** → gerenciar automaticamente o contexto em sistemas agênticos
-
-#### Evolução
-
-```mermaid
-timeline
-    title Evolução da Engenharia
-    2023 : Engenharia de Prompt
-         : Selecionar as palavras e exemplos certos para elicitar os outputs desejados em uma única chamada ao modelo.
-    2025 : Engenharia de Contexto
-         : Popular dinamicamente a janela de contexto com as informações certas para elicitar os outputs desejados de um agente.
-    2026 : Engenharia de Scaffolding
-         : Projetar o scaffold, orquestração e ferramentas que elicitam os outputs desejados de uma aplicação agêntica.
-```
 
 #### Por que LLMs Erram?
 
@@ -639,12 +609,11 @@ LLMs não leem mentes — erram pelos mesmos motivos que humanos erram quando ma
 
 | Problema | Descrição |
 |----------|-----------|
-| **Contexto insuficiente** | O modelo não tem as informações necessárias para fazer um bom trabalho. Como um novo funcionário sem briefing — capaz, mas sem direção. |
-| **Contexto excessivo** | O modelo recebe informação demais e se perde. Detalhes irrelevantes diluem o sinal e aumentam a chance de alucinações. |
+| **Contexto insuficiente** | O modelo não tem as informações necessárias. Como um novo funcionário sem briefing — capaz, mas sem direção. |
+| **Contexto excessivo** | O modelo recebe informação demais e se perde. Detalhes irrelevantes diluem o sinal e aumentam alucinações. |
 
-> Sistemas agênticos são não-determinísticos — o gerenciamento de contexto deve ser automático.
-
-!!! tip "Veja a Aula 3 abaixo para o detalhamento completo das 10 falhas de contexto, técnicas avançadas e ferramentas."
+!!! tip "Aprofundamento"
+    A [Aula 3](#aula-3-engenharia-de-contexto-avancada) detalha as 10 falhas de contexto, técnicas avançadas (Context Editing, Sumarização, DSPy) e ferramentas (Kiro, Council, LLM as Judge).
 
 ---
 
@@ -1055,3 +1024,11 @@ RESPOSTA DO SISTEMA → LLM JUIZ → VEREDICTO
 - TAYLOR, Mike. **Context Engineering with DSPy**. O'Reilly Learning Platform. Sebastopol: O'Reilly Media. Disponível em: [https://learning.oreilly.com](https://learning.oreilly.com).
 - ANTHROPIC. **Prompt Engineering Interactive Tutorial**. GitHub repository. Disponível em: [https://github.com/anthropics/prompt-eng-interactive-tutorial](https://github.com/anthropics/prompt-eng-interactive-tutorial).
 - Phil Schmid. **Memory in Agents**. Disponível em: [https://www.philschmid.de/memory-in-agents](https://www.philschmid.de/memory-in-agents).
+
+---
+
+[:octicons-pencil-24: Teste seus conhecimentos — Quiz B1S02](quiz-b1s02.md){ .md-button }
+
+---
+
+[:octicons-pencil-24: Teste seus conhecimentos — Quiz B1S02](quiz-b1s02.md){ .md-button }

@@ -3,14 +3,6 @@
 !!! info "Semana 2 · Bloco 2"
     **Ementa:** Padrões de agentes (ReAct, Planner-Executor, Toolformer), RAG com Qdrant, tipos de memória (Working, Episodic, Semantic, Procedural), MemoryBank com Ebbinghaus, Context Engineering, orquestração multi-agente e pipeline prático.
 
-## Referências Bibliográficas
-
-| Livro | Autor | Editora |
-|-------|-------|---------|
-| Prompt Engineering for LLMs | John Berryman & Albert Ziegler | O'Reilly, 2024 |
-| AI Engineering: Building Applications with Foundation Models | Chip Huyen | O'Reilly, 2024 |
-| Context Engineering with DSPy | Mike Taylor | O'Reilly (Early Release) |
-
 ---
 
 ## Aula 1 — Padrões de Agentes
@@ -23,7 +15,6 @@
 | **Planner-Executor** | Planejar tudo → Executar etapas | Tarefas estruturadas, multi-step |
 | **Toolformer** | Modelo aprende sozinho a usar tools | Pesquisa, modelos auto-suficientes |
 
----
 
 ### ReAct — Reasoning + Acting
 
@@ -55,7 +46,6 @@ response = chat.send_message("Qual a temperatura em Florianópolis agora?")
 
 O Gemini executa o ciclo ReAct automaticamente quando `enable_automatic_function_calling=True` — ele decide qual tool chamar, observa o resultado e continua raciocinando.
 
----
 
 ### Planner-Executor — Separação de Responsabilidades
 
@@ -82,7 +72,6 @@ Divide o problema em duas fases distintas:
 !!! warning "Trade-off"
     O Planner-Executor é mais previsível, mas **não se adapta** se algo der errado no meio. O ReAct é mais flexível mas pode entrar em loops.
 
----
 
 ### Toolformer — O Modelo Aprende a Usar Tools
 
@@ -95,7 +84,6 @@ Diferente dos anteriores, o Toolformer não recebe tools via prompt — ele foi 
 | Custo de prompt | Alto (tool descriptions) | Baixo (já sabe) |
 | Exemplo | GPT-4 + function calling | Gorilla, ToolLLM |
 
----
 
 ### Quando Usar Cada Padrão
 
@@ -123,7 +111,6 @@ LLMs têm limitações fundamentais de conhecimento:
 !!! info "Solução"
     **RAG (Retrieval-Augmented Generation)**: buscar informação relevante e injetar no prompt antes de gerar a resposta.
 
----
 
 ### Embeddings — Texto Vira Vetor
 
@@ -161,7 +148,6 @@ def cosine_similarity(a, b):
     return dot(a, b) / (norm(a) * norm(b))
 ```
 
----
 
 ### RAG em Detalhe — Duas Fases
 
@@ -183,7 +169,6 @@ def cosine_similarity(a, b):
 | 3 | **Augment prompt** | Documentos relevantes + query combinados no prompt |
 | 4 | **Generate** | LLM gera resposta baseada no contexto recuperado |
 
----
 
 ### Qdrant — Vector Database
 
@@ -259,7 +244,6 @@ def rag_query(user_query):
     - **limit=3-5** — mais que isso polui o contexto
 
 
----
 
 ### Por que Memória Importa
 
@@ -274,7 +258,6 @@ LLMs são entidades esquecidas por natureza — **stateless**. Cada chamada come
 !!! warning "Definição ampla de memória"
     Memória não é só "lembrar conversas". Inclui: histórico de ações, informação externa (docs, banco), armazenar novo conhecimento gerado, e lógica application-specific.
 
----
 
 ### Tipos de Memória — Human-Inspired
 
@@ -287,7 +270,6 @@ A memória de agentes segue os tipos de memória humana (Cognitive Architectures
 | **Semantic Memory** | Long-term (persistente) | Conhecimento do mundo | Base de conhecimento externa | Vector database (Qdrant), RAG |
 | **Procedural Memory** | Fixo (treinamento) | Como fazer coisas | Parâmetros do modelo + system prompt | System prompt, pesos do LLM |
 
----
 
 ### Short-Term Memory — Conversation History
 
@@ -319,16 +301,8 @@ messages = [
 !!! tip "Recomendação"
     Comece com **trimming** (simples). Evolua para **janela deslizante** quando precisar de contexto histórico sem explodir tokens.
 
----
-
-### Long-Term Memory — RAG
-
-**Retrieval-Augmented Generation (RAG)**: a forma mais comum de dar memória de longo prazo a um LLM.
-
-O RAG funciona como **Semantic Memory** — o agente busca conhecimento externo relevante e injeta no prompt antes de gerar a resposta. Veja a seção anterior para implementação completa.
 
 
----
 
 ### MemoryBank — Memória que Esquece e Reforça
 
@@ -400,7 +374,6 @@ $$
 !!! warning "Pinned Memories"
     Nem tudo que não é acessado é irrelevante! Regras de negócio, contextos críticos e configurações devem usar `pinned = true` — excluídas do processo de decaimento e remoção automática.
 
----
 
 ### Agentic RAG — O Agente Controla a Memória
 
@@ -431,7 +404,6 @@ O agente pode:
 | **Hypertextual** | Notas são linkadas entre si por similaridade semântica |
 | **Evolutiva** | Novas memórias atualizam tags e descrições das antigas |
 
----
 
 ### Context Engineering — O Próximo Nível
 
@@ -452,7 +424,6 @@ O agente pode:
 | 03 | **Context Compression (MMR)** | Resumir histórico com LLM, evitar docs redundantes, balancear relevância + diversidade |
 | 04 | **Context Ordering** | LLMs atendem mais ao início e fim. Info crítica → começo ou fim do prompt |
 
----
 
 ### Context Ordering & Compression — Detalhes
 
@@ -520,7 +491,6 @@ A maioria dos casos **não precisa** de múltiplos agentes:
 - [ ] Cada agente tem escopo definido? → Se não → defina antes de codar
 - [ ] Está claro quem encerra o fluxo? → Se não → você terá loops
 
----
 
 ### Os 3 Padrões de Orquestração
 
@@ -554,7 +524,6 @@ ORQUESTRADOR PRINCIPAL
 
 Alta complexidade — use com parcimônia.
 
----
 
 ### O que o Orquestrador Faz
 
@@ -569,7 +538,6 @@ O orquestrador não é apenas um roteador — ele **prepara, decide e fecha** o 
 | 5 | **Recebe e valida** | Valida se o resultado atende ao objetivo. Pode re-rotear |
 | 6 | **Fecha o ciclo** | Atualiza memórias usadas, registra resultado, decide se encerrou |
 
----
 
 ### Como o Orquestrador Roteia
 
@@ -601,7 +569,6 @@ Três formas de decidir qual agente acionar — com trade-offs diferentes:
 !!! tip "Evolução gradual"
     Comece com **regras fixas**. Migre para **classificador LLM** quando encontrar inputs ambíguos. Adicione **memória** quando precisar de personalização.
 
----
 
 ### Erros Clássicos em Multi-Agente
 
@@ -615,7 +582,6 @@ Três formas de decidir qual agente acionar — com trade-offs diferentes:
 | **Memória compartilhada sem isolamento** | Agentes lendo e escrevendo na mesma coleção sem namespacing contaminam o contexto |
 
 
----
 
 ### Pipeline Prático — 3 Agentes Especializados
 
@@ -699,7 +665,6 @@ O que audita (scores 0-1):
 !!! info "Por que esse agente é poderoso?"
     Ele vê o pipeline completo — acessa no Qdrant o que os Agentes 1 e 2 produziram e audita a coerência entre eles. É impossível fazer isso sem memória compartilhada.
 
----
 
 ### Estrutura de Pastas — Cada Agente no seu Lugar
 
@@ -734,7 +699,6 @@ pipeline_agentes/
 - 📦 **Substituível** — troque o Agente 2 por versão melhor sem mudar o pipeline
 - 🏭 **Padrão de mercado** — microsserviços, modular agents
 
----
 
 ### Orquestrador — O Maestro do Pipeline
 
@@ -779,7 +743,6 @@ def run_pipeline(user_story: str) -> dict:
 | Agente 2 → 3 | ⚡ riscos_resumo (200 tokens) | 💾 req. ocultos completos |
 | Agente 3 | ⚡ contexto_ag3 (500 tokens) | 💾 busca tudo (Qdrant) |
 
----
 
 ### Memória na Prática — Short-term vs Long-term
 
@@ -831,3 +794,16 @@ No pipeline, os dois tipos de memória têm papéis **complementares**:
     ```
     *Ideal para produção e para ensinar*
 
+
+---
+
+## Referências Bibliográficas
+
+| Livro | Autor | Editora |
+|-------|-------|---------|
+| Prompt Engineering for LLMs | John Berryman & Albert Ziegler | O'Reilly, 2024 |
+| AI Engineering: Building Applications with Foundation Models | Chip Huyen | O'Reilly, 2024 |
+| Context Engineering with DSPy | Mike Taylor | O'Reilly (Early Release) |
+
+
+[:octicons-pencil-24: Teste seus conhecimentos — Quiz B2S02](quiz-b2s02.md){ .md-button }
