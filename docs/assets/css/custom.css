@@ -91,6 +91,13 @@
   color: #000 !important;
   fill: #000 !important;
 }
+
+/* Mermaid: texto em negrito para destaque */
+.mermaid .nodeLabel,
+.mermaid .edgeLabel text,
+.mermaid text.nodeLabel {
+  font-weight: 700 !important;
+}
 .md-content {
   animation: fadeIn 0.3s ease;
 }
