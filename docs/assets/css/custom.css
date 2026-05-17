@@ -123,10 +123,7 @@
     width: 17rem;
   }
   .md-sidebar--secondary {
-    display: none !important;
-  }
-  .md-content {
-    margin-right: 0;
+    width: 13rem;
   }
 }
 

@@ -305,25 +305,4 @@ cd awesome-n8n-templates/
 
 ---
 
-## 🚀 Ordem Recomendada
 
-```mermaid
-gantt
-    title Roteiro de Estudos (sugestão)
-    dateFormat X
-    axisFormat %s
-    
-    section Semana 1
-    Lab 1 - Fundamentos     :a1, 0, 2
-    Lab 2 - Agentes API     :a2, 2, 4
-    
-    section Semana 2
-    Lab 3 - MCP/LangGraph   :a3, 4, 8
-    
-    section Semana 3
-    Lab 4 - RAG/Guardrails  :a4, 8, 11
-    Lab 5 - N8N             :a5, 11, 12
-```
-
-!!! success "Dica final"
-    Não tente fazer tudo de uma vez. Cada lab tem exercícios **progressivos** — o ex01 sempre é simples e o último é desafiador. Faça até onde conseguir e volte depois!
