@@ -43,9 +43,53 @@
 
 /* Mermaid contrast fix */
 .mermaid [style*="fill:#ff6d00"] text,
-.mermaid [style*="fill:#ff9800"] text {
+.mermaid [style*="fill:#ff9800"] text,
+.mermaid [style*="fill:#ff6d00"] span,
+.mermaid [style*="fill:#ff9800"] span {
   fill: #000 !important;
   color: #000 !important;
+}
+
+/* Mermaid: garante texto legível em ambos os modos */
+[data-md-color-scheme="slate"] .mermaid text:not([fill]),
+[data-md-color-scheme="slate"] .mermaid .edgeLabel text,
+[data-md-color-scheme="slate"] .mermaid .nodeLabel {
+  fill: #fff !important;
+  color: #fff !important;
+}
+
+[data-md-color-scheme="slate"] .mermaid .edgeLabel {
+  background-color: #2d2d2d !important;
+}
+
+[data-md-color-scheme="default"] .mermaid text:not([fill]),
+[data-md-color-scheme="default"] .mermaid .edgeLabel text,
+[data-md-color-scheme="default"] .mermaid .nodeLabel {
+  fill: #1a1a1a !important;
+  color: #1a1a1a !important;
+}
+
+/* Nós com fundo escuro sempre texto branco */
+.mermaid [style*="fill:#7c4dff"] .nodeLabel,
+.mermaid [style*="fill:#4a148c"] .nodeLabel,
+.mermaid [style*="fill:#1a237e"] .nodeLabel,
+.mermaid [style*="fill:#455a64"] .nodeLabel,
+.mermaid [style*="fill:#37474f"] .nodeLabel,
+.mermaid [style*="fill:#f44336"] .nodeLabel,
+.mermaid [style*="fill:#9c27b0"] .nodeLabel,
+.mermaid [style*="fill:#2196f3"] .nodeLabel,
+.mermaid [style*="fill:#4caf50"] .nodeLabel,
+.mermaid [style*="fill:#00c853"] .nodeLabel,
+.mermaid [style*="fill:#666"] .nodeLabel {
+  color: #fff !important;
+  fill: #fff !important;
+}
+
+/* Nós com fundo claro sempre texto preto */
+.mermaid [style*="fill:#ff6d00"] .nodeLabel,
+.mermaid [style*="fill:#ff9800"] .nodeLabel {
+  color: #000 !important;
+  fill: #000 !important;
 }
 .md-content {
   animation: fadeIn 0.3s ease;
