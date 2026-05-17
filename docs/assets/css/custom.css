@@ -59,9 +59,9 @@
 /* Sidebar mais larga */
 @media screen and (min-width: 76.25em) {
   .md-sidebar--primary {
-    width: 18rem;
+    width: 22rem;
   }
   .md-sidebar--primary .md-sidebar__scrollwrap {
-    width: 18rem;
+    width: 22rem;
   }
 }
