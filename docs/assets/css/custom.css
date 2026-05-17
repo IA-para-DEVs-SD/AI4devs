@@ -69,3 +69,12 @@
 .md-nav__item .md-nav__link {
   padding-right: 0.4rem;
 }
+
+.md-nav--primary .md-nav__item {
+  padding: 0;
+}
+
+.md-nav--primary,
+.md-nav--primary .md-nav {
+  width: 100%;
+}

@@ -24,7 +24,6 @@ theme:
     - navigation.top
     - search.highlight
     - content.tabs.link
-    - toc.integrate
   icon:
     logo: material/robot-happy
   font:
