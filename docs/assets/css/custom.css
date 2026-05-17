@@ -56,13 +56,13 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Sidebar mais larga */
+/* Sidebar */
 @media screen and (min-width: 76.25em) {
   .md-sidebar--primary {
-    width: 22rem;
+    width: 15rem;
   }
   .md-sidebar--primary .md-sidebar__scrollwrap {
-    width: 22rem;
+    width: 15rem;
   }
 }
 
