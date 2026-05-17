@@ -117,26 +117,31 @@
 /* Sidebar */
 @media screen and (min-width: 76.25em) {
   .md-sidebar--primary {
-    width: 15rem;
+    width: 17rem;
   }
   .md-sidebar--primary .md-sidebar__scrollwrap {
-    width: 15rem;
+    width: 17rem;
   }
   .md-sidebar--secondary {
-    display: none;
+    display: none !important;
   }
   .md-content {
-    max-width: 100%;
     margin-right: 0;
   }
 }
 
-.md-nav__item .md-nav__link {
+/* Nav: usar toda a largura sem indentação excessiva */
+.md-nav--primary .md-nav__link {
   padding-right: 0.4rem;
+  margin-right: 0;
 }
 
 .md-nav--primary .md-nav__item {
   padding: 0;
+}
+
+.md-nav--primary .md-nav--nested {
+  margin-left: 0.4rem;
 }
 
 .md-nav--primary,
