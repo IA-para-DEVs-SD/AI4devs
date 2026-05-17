@@ -65,3 +65,7 @@
     width: 22rem;
   }
 }
+
+.md-nav__item .md-nav__link {
+  padding-right: 0.4rem;
+}
