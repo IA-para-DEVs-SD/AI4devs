@@ -24,6 +24,11 @@ O mercado de trabalho está em transformação acelerada. Segundo o **World Econ
 !!! quote "O impacto global"
     **92 milhões** de funções vão desaparecer — mas **170 milhões** de novos empregos serão criados. O saldo é positivo para quem se preparar.
 
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin: 1.5rem 0; border-radius: 8px;">
+  <iframe src="https://www.youtube.com/embed/B8R148hFxPw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen></iframe>
+</div>
+<small>🚗 Waymo — carro autônomo guiado por IA em ruas reais. Veja como a IA "enxerga" o mundo em 360°. <a href="https://waymo.com/" target="_blank">waymo.com</a></small>
+
 | Dado | Fonte |
 |------|-------|
 | **39%** das habilidades exigidas hoje serão transformadas até 2030 | WEF 2025 |
