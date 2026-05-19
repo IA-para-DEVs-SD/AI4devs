@@ -374,3 +374,17 @@ flowchart LR
 
 !!! quote "Mensagem final"
     Agente em produção não é prompt grande. É **arquitetura**: contrato, memória, recuperação, segurança, observabilidade e avaliação.
+
+---
+
+## 🧪 Repositório
+
+Os exercícios desta sessão estão no repositório **SupportOps Agent Lab**:
+
+```bash
+git clone https://github.com/LAB365/supportops-agent-lab.git labs/supportops
+cd labs/supportops
+python run.py doctor
+```
+
+[:octicons-arrow-right-24: Ver instruções completas no Repositório](../repositorio.md){ .md-button }

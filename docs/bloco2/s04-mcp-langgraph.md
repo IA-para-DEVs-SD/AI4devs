@@ -321,3 +321,18 @@ O projeto é construído incrementalmente em 16 exercícios:
 - **Citar evidências** quando disponíveis
 - **Sugerir próximo passo** acionável
 - **Manter fallback honesto** quando não houver contexto
+
+---
+
+## 🧪 Repositório
+
+Os exercícios estão no repositório **Stack Sentinel Lab**:
+
+```bash
+git clone https://github.com/LAB365/stack-sentinel-lab.git labs/stack-sentinel
+cd labs/stack-sentinel
+python run.py doctor
+python run.py setup
+```
+
+[:octicons-arrow-right-24: Ver instruções completas no Repositório](../repositorio.md){ .md-button }
