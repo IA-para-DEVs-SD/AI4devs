@@ -2,8 +2,8 @@
 
 <div class="hero" markdown>
 
-> **"A IA não representa o fim do nosso trabalho. Mas o fim do trabalho sem alma."**
-> — Andrea Dietrich
+> **"A IA não representa o fim do nosso trabalho, mas o fim do trabalho sem método, critério e intenção."**
+> — Andrea Dietrich, coordenadora do curso IA para Desenvolvedores (SENAI/SC, 2026)
 
 </div>
 
