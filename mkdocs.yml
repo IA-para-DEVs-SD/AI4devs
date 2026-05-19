@@ -1,6 +1,8 @@
 site_name: "AI4Devs — Curso de IA para Desenvolvedores"
 site_description: "Resumo interativo do curso IA para Desenvolvedores"
 site_author: "LAB365"
+repo_url: https://github.com/IA-para-DEVs-SD/AI4devs
+repo_name: IA-para-DEVs-SD/AI4devs
 
 theme:
   name: material
