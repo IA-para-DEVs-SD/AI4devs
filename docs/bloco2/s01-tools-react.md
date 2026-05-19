@@ -37,14 +37,14 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-    P[👁️ Percepção<br/>Coleta dados: diffs, logs, APIs]
-    R[🧠 Raciocínio<br/>Decide estratégia e ferramentas]
-    A[⚡ Ação<br/>Executa: comenta PR, abre issue, chama API]
-    V[✅ Verificação<br/>Valida resultado, detecta falhas]
+    P[Percepção<br/>Coleta dados: diffs, logs, APIs]
+    R[Raciocínio<br/>Decide estratégia e ferramentas]
+    A[Ação<br/>Executa: comenta PR, abre issue, chama API]
+    V[Verificação<br/>Valida resultado, detecta falhas]
     
     P --> R --> A --> V
     V -->|objetivo não atingido| P
-    V -->|sucesso| F[🏁 Fim]
+    V -->|sucesso| F[Fim]
     
     style P fill:#2196f3,color:#fff
     style R fill:#7c4dff,color:#fff
@@ -62,10 +62,10 @@ flowchart TD
 ```mermaid
 flowchart TD
     subgraph "Agente"
-        OBJ[🎯 Objetivo<br/>Mensurável e operacional]
-        CTX[📚 Contexto<br/>Dados + restrições]
-        TOOLS[🔧 Ferramentas<br/>Ações disponíveis]
-        RULES[🚫 Regras/Limites<br/>O que NÃO pode fazer]
+        OBJ[Objetivo<br/>Mensurável e operacional]
+        CTX[Contexto<br/>Dados + restrições]
+        TOOLS[Ferramentas<br/>Ações disponíveis]
+        RULES[Regras e Limites<br/>O que NÃO pode fazer]
     end
     
     subgraph "Ambiente"
@@ -76,7 +76,7 @@ flowchart TD
     end
     
     TOOLS --> API & DB & GIT
-    OBJ & CTX & RULES --> LLM[🤖 LLM]
+    OBJ & CTX & RULES --> LLM[LLM]
     LLM --> TOOLS
     TOOLS --> LOG
     
@@ -121,10 +121,10 @@ Guardrails são **camadas de segurança** que impedem o agente de causar dano.
 flowchart LR
     subgraph "Camadas de Proteção"
         direction TB
-        I[🛡️ Input<br/>Valida entrada]
-        P[🧠 Processamento<br/>Limita iterações]
-        A[⚡ Ação<br/>Restringe escopo]
-        O[📤 Output<br/>Filtra saída]
+        I[Input<br/>Valida entrada]
+        P[Processamento<br/>Limita iterações]
+        A[Ação<br/>Restringe escopo]
+        O[Output<br/>Filtra saída]
     end
     
     U[Usuário] --> I --> P --> A --> O --> R[Resposta]
@@ -177,28 +177,28 @@ O padrão ReAct é o ciclo fundamental de um agente: **pensar → agir → obser
 ```mermaid
 sequenceDiagram
     participant U as Usuário
-    participant A as Agente (LLM)
+    participant A as Agente LLM
     participant T as Tools
     
-    U->>A: "Analise o código em ./codigo_alvo"
+    U->>A: Analise o código em ./codigo_alvo
     
-    Note over A: 💭 Thought: Preciso listar os arquivos primeiro
-    A->>T: list_files("./codigo_alvo")
-    T-->>A: ["main.py", "utils.py", "test_main.py"]
+    Note over A: Thought - Preciso listar os arquivos primeiro
+    A->>T: list_files ./codigo_alvo
+    T-->>A: main.py, utils.py, test_main.py
     
-    Note over A: 💭 Thought: Vou ler cada arquivo
-    A->>T: read_file("./codigo_alvo/main.py")
+    Note over A: Thought - Vou ler cada arquivo
+    A->>T: read_file main.py
     T-->>A: conteúdo do arquivo
     
-    Note over A: 💭 Thought: Agora rodo análise estática
-    A->>T: run_linting("./codigo_alvo")
+    Note over A: Thought - Agora rodo análise estática
+    A->>T: run_linting ./codigo_alvo
     T-->>A: resultados do linting
     
-    Note over A: 💭 Thought: Tenho tudo, vou gerar o relatório
-    A->>T: write_file("relatorio.md", conteúdo)
+    Note over A: Thought - Tenho tudo, vou gerar o relatório
+    A->>T: write_file relatorio.md
     T-->>A: arquivo criado
     
-    A->>U: ✅ Relatório gerado em relatorio.md
+    A->>U: Relatório gerado em relatorio.md
 ```
 
 !!! info "Características do ReAct"
