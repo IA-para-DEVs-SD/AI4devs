@@ -1,4 +1,151 @@
-# S05 — RAG, Integração de LLMs e Avaliação
+# S05 — Integração de Agentes com Sistemas Reais, RAG e Avaliação
+
+## DIA 1 — Integração de Agentes com Sistemas Reais
+
+### Objetivos
+
+| # | Objetivo |
+|---|----------|
+| 01 | Transformar APIs em tools confiáveis |
+| 02 | Definir contratos e JSON validado |
+| 03 | Separar decisão do LLM de invariantes de código |
+| 04 | Desenhar a primeira arquitetura do agente |
+
+---
+
+### Trace de Agente — O que Observar
+
+Um trace mostra a conversa entre LLM, tool calls e resultados de API:
+
+```
+agent_trace.log
+
+1. user_input
+   "Analise o ticket #4821"
+
+2. tool_call
+   get_ticket(ticket_id="4821")
+
+3. tool_result
+   {"error":"403", "service":"analytics-api", "user_id":"u_77"}
+
+4. tool_call
+   check_user_access(user_id="u_77", resource="dashboard")
+
+5. tool_result
+   {"allowed": false, "reason": "role sales_manager sem permissão"}
+
+6. final_output
+   {"category":"auth", "requires_human": false,
+    "recommended_action":"revisar role ou invalidar cache"}
+```
+
+!!! warning "Ponto-chave"
+    O LLM não "acessa a API". Ele solicita uma tool call. O seu **runtime** valida, executa e devolve o resultado.
+
+---
+
+### Implementar Wrapper da API
+
+A tool é uma **fronteira de engenharia** — não é apenas chamar um endpoint:
+
+```python
+from pydantic import BaseModel, Field
+import httpx
+
+class AccessInput(BaseModel):
+    user_id: str = Field(min_length=1)
+    resource: str = Field(min_length=1)
+
+def check_user_access(user_id: str, resource: str) -> dict:
+    args = AccessInput(user_id=user_id, resource=resource)
+    try:
+        response = httpx.get(
+            f"https://internal-api/access/{args.user_id}",
+            params={"resource": args.resource},
+            timeout=3.0,
+        )
+        response.raise_for_status()
+        return normalize_access_payload(response.json())
+    except httpx.TimeoutException:
+        return {"status": "error", "reason": "timeout"}
+```
+
+**O que o wrapper resolve:**
+
+- ✅ Validação de argumentos (Pydantic)
+- ✅ Timeout e erro HTTP
+- ✅ Normalização do payload
+- ✅ Retorno simples para o LLM
+
+---
+
+### Código vs Prompt — Onde Resolver Cada Problema
+
+| Problema | Código / policy | Prompt |
+|----------|----------------|--------|
+| **Campo obrigatório ausente** | Validação bloqueia execução | Não resolve sozinho |
+| **Formato JSON inválido** | Schema + retry controlado | Ajuda, mas não garante |
+| **Tom da resposta** | Pouco relevante | Define clareza e postura |
+| **Classificação ambígua** | Regras mínimas e fallback | Ajuda a decidir por critérios |
+| **Permissão de ação crítica** | Sempre código/policy/HITL | Nunca como única barreira |
+| **Resposta sem fonte** | RAG, eval e policy | Pode reforçar, mas não basta |
+
+!!! danger "Regra fundamental"
+    Nunca confie apenas no prompt para controlar ações críticas. Validações determinísticas (código) devem ser a barreira principal.
+
+---
+
+### Framework D.E.C.I.D.E.
+
+Aplicado ao projeto SupportOps:
+
+| Letra | Aplicação no projeto |
+|-------|---------------------|
+| **D** | Classificar ticket 403 e sugerir ação com evidência |
+| **E** | Ticket, usuário, role, serviço, incidentes e runbook |
+| **C** | check_user_access, get_service_status, search_runbook |
+| **I** | Sem alteração de role; aprovação humana para escrita sensível |
+| **D** | JSON com category, priority, evidence e requires_human |
+| **E** | Dataset com tickets normais, ambíguos e adversariais |
+
+---
+
+### Chain-of-Thought em 2026
+
+| Como ensinar | Como NÃO usar |
+|-------------|---------------|
+| CoT explícito é importante historicamente. Modelos modernos podem raciocinar internamente. Em produção, peça **plano, critérios e validação**. | Evite "mostre todo seu raciocínio" como padrão. Não confunda explicação com garantia. Não exponha raciocínio sensível. |
+
+!!! tip "Mensagem"
+    Prefira planos verificáveis, checagens e saída estruturada.
+
+---
+
+### Tipos Práticos de Memória
+
+| Tipo prático | Onde vive | Exemplo no SupportOps | Quando usar |
+|-------------|-----------|----------------------|-------------|
+| **Estado da sessão** | messages[] / state | ticket atual, tool results, plano atual | Durante uma execução |
+| **Memória operacional** | SQL/NoSQL/logs | decisões anteriores, status de workflow | Auditoria e continuidade |
+| **Memória semântica** | Vector DB / índice | runbooks, FAQs, docs técnicos, tickets resolvidos | Busca por significado |
+
+!!! info "Noção básica"
+    Para produção, pense em: **estado atual**, **memória persistente** e **conhecimento recuperável**.
+
+---
+
+### LangChain, Templates e Guardrails
+
+| Item | O que é | Por que mostrar |
+|------|---------|----------------|
+| **LangChain** | Framework/biblioteca | Organiza tools, prompts e integração |
+| **Prompt templates** | Abstração de prompt | Evita prompt hardcoded espalhado no código |
+| **Guardrails** | Camada de controle | Valida input, output e ação |
+| **LangGraph** | Orquestrador | Estado, nós, arestas e HITL |
+| **Pydantic/Zod** | Validação determinística | Schema, tipos e integração segura |
+
+---
 
 ## RAG — Retrieval-Augmented Generation
 
@@ -34,13 +181,23 @@ flowchart LR
 | **Prompt longo** | Simples | Limitado pela janela |
 | **RAG** | Atualizado, escalável, rastreável | Mais complexo de implementar |
 
----
+### Top-k e Reranking
+
+| Etapa | Entrada | Saída | Trade-off |
+|-------|---------|-------|-----------|
+| **Top-k** | query embedding | 20 candidatos rápidos | barato e amplo |
+| **Reranking** | query + candidatos | 5 melhores reordenados | mais caro, mais preciso |
+| **Prompt final** | top chunks reordenados | contexto enxuto | menos ruído |
+
+=== "Top-k"
+    Busca rápida no vector store. Retorna os K chunks mais próximos da query por similaridade vetorial.
+
+=== "Reranking"
+    Reavalia os candidatos com um modelo mais caro/preciso, olhando query + documento juntos.
 
 ### Componentes do RAG
 
 === "1. Chunking"
-    Dividir documentos em pedaços que cabem no contexto.
-    
     | Estratégia | Quando usar |
     |-----------|-------------|
     | Tamanho fixo (500 tokens) | Textos genéricos |
@@ -50,8 +207,6 @@ flowchart LR
     !!! warning "Chunk muito grande = ruído. Muito pequeno = perde contexto."
 
 === "2. Embeddings"
-    Transformar texto em vetores numéricos que capturam significado.
-    
     ```python
     from openai import OpenAI
     
@@ -63,8 +218,6 @@ flowchart LR
     ```
 
 === "3. Vector DB"
-    Banco otimizado para busca por similaridade.
-    
     | DB | Tipo | Melhor para |
     |---|---|---|
     | Chroma | In-memory/local | Protótipos |
@@ -73,8 +226,6 @@ flowchart LR
     | Qdrant | Self-hosted | Controle total |
 
 === "4. Retrieval"
-    Buscar os chunks mais relevantes para a pergunta.
-    
     ```python
     results = vector_db.similarity_search(
         query="Como resetar senha?",
@@ -84,30 +235,65 @@ flowchart LR
 
 ---
 
-## Avaliação de LLMs e Agentes
+## Guardrails — Segurança em Camadas
 
-!!! danger "Se você não mede, você não sabe se funciona"
-    Avaliação é o que separa protótipos de sistemas confiáveis.
+### Recap: O Novo Problema
 
-### Métricas para RAG
+| Até agora | Novo risco |
+|-----------|-----------|
+| Consulta APIs | Alterar permissão errada |
+| Usa memória | Fechar ticket errado |
+| Usa RAG | Vazar dados sensíveis |
+| Sugere soluções | Entrar em loop caro |
+
+!!! danger "Pergunta central"
+    Até onde o agente pode ir sozinho?
+
+### Arquitetura de 5 Camadas
 
 ```mermaid
-flowchart TD
-    subgraph "Retrieval (Busca)"
-        R1[Precision<br/>% relevantes nos resultados]
-        R2[Recall<br/>% encontrados do total relevante]
-        R3[MRR<br/>Posição do primeiro relevante]
-    end
+flowchart LR
+    A[Input guardrail<br/>sanitizar<br/>limitar<br/>detectar injection] --> B[Tool policy<br/>allowlist<br/>schema<br/>autorização]
+    B --> C[Runtime<br/>executar<br/>retry<br/>fallback]
+    C --> D[Output guardrail<br/>schema<br/>PII<br/>fontes]
+    D --> E[Human review<br/>aprovar<br/>editar<br/>rejeitar]
     
-    subgraph "Generation (Resposta)"
-        G1[Faithfulness<br/>Resposta fiel aos docs?]
-        G2[Relevance<br/>Responde a pergunta?]
-        G3[Hallucination<br/>Inventou algo?]
-    end
-    
-    style R1 fill:#2196f3,color:#fff
-    style G1 fill:#4caf50,color:#fff
+    style A fill:#e91e63,color:#fff
+    style B fill:#ff9800,color:#000
+    style C fill:#4caf50,color:#fff
+    style D fill:#2196f3,color:#fff
+    style E fill:#e91e63,color:#fff
 ```
+
+Cada camada bloqueia uma classe de erro diferente. Não é redundante com o workflow de integração: aqui o foco é **segurança e controle**.
+
+---
+
+## Métricas para Agentes com Tools
+
+| Métrica | O que mede | Exemplo no SupportOps |
+|---------|-----------|----------------------|
+| **Tool selection accuracy** | A tool certa foi escolhida? | search_runbook vs get_user |
+| **Argument validity** | Argumentos seguem schema? | service_id válido |
+| **Step success rate** | Etapas concluídas sem erro? | 3/4 tools executadas |
+| **Escalation precision** | Pediu humano quando devia? | ação sensível |
+| **Retry/error handling** | Tratou falhas de API? | timeout não derruba fluxo |
+
+---
+
+## Avaliação de LLMs e Agentes
+
+### Por que Avaliar LLMs é Diferente
+
+Em software tradicional, um teste pergunta: passou ou falhou? Em LLMs, isso quase nunca é suficiente.
+
+| Desafio | Explicação |
+|---------|-----------|
+| **Não existe resposta única** | A mesma pergunta pode ter várias respostas válidas, com níveis diferentes de clareza, completude e utilidade |
+| **A falha pode ser semântica** | A resposta pode estar gramaticalmente boa e ainda assim não responder à pergunta ou usar evidência errada |
+| **O pipeline também falha** | Em RAG, o erro pode estar na busca, no reranking, no prompt, no modelo ou na composição do contexto |
+
+!!! quote "LLMs não falham só por erro: falham por qualidade, relevância e confiança."
 
 ### Framework de Avaliação
 
@@ -119,11 +305,7 @@ flowchart TD
 | **Hallucination** | Inventou informação? | Comparar com docs |
 | **Completeness** | Cobriu todos os pontos? | Checklist |
 
----
-
 ### LLM-as-Judge
-
-Usar um LLM para avaliar outputs de outro LLM:
 
 ```python
 evaluation_prompt = """
@@ -142,34 +324,38 @@ Score (1-5) e justificativa:
 """
 ```
 
-!!! tip "Dica"
-    Use um modelo **mais forte** como juiz (ex: GPT-4 avaliando GPT-3.5) ou combine com avaliação humana para calibrar.
+---
+
+## Checklist P.R.O.D.U.C.T.I.O.N.
+
+| Letra | Área | Detalhes |
+|-------|------|----------|
+| **P** | Policies | Regras de ação e permissões |
+| **R** | Retrieval | Fontes, filtros e citations |
+| **O** | Observability | Traces, custo e latência |
+| **D** | Data boundaries | PII, tenants e escopo |
+| **U** | User approval | HITL para ações sensíveis |
+
+!!! success "Primeira metade"
+    Políticas, conhecimento, rastreabilidade, fronteiras de dados e aprovação humana.
 
 ---
 
-## Integração de LLMs em Aplicações
+## Próximos Passos do Projeto
 
 ```mermaid
-flowchart TD
-    subgraph "Padrões de Integração"
-        P1[Síncrono<br/>Request → LLM → Response]
-        P2[Streaming<br/>Request → LLM → tokens...]
-        P3[Assíncrono<br/>Request → Queue → LLM → Callback]
-        P4[Batch<br/>N requests → LLM → N responses]
-    end
+flowchart LR
+    A[1<br/>Definir caso] --> B[2<br/>Mapear tools]
+    B --> C[3<br/>Adicionar RAG]
+    C --> D[4<br/>Criar evals]
+    D --> E[5<br/>Aplicar checklist]
     
-    P1 -->|simples, lento| U1[Chat simples]
-    P2 -->|UX melhor| U2[Chat interativo]
-    P3 -->|escalável| U3[Processamento em massa]
-    P4 -->|econômico| U4[Análise de dados]
+    style A fill:#ff6d00,color:#fff
+    style B fill:#e91e63,color:#fff
+    style C fill:#7c4dff,color:#fff
+    style D fill:#2196f3,color:#fff
+    style E fill:#ff6d00,color:#fff
 ```
 
-### Checklist de Produção
-
-- [ ] Rate limiting (respeitar limites da API)
-- [ ] Retry com backoff exponencial
-- [ ] Timeout configurado
-- [ ] Fallback para quando LLM falha
-- [ ] Cache de respostas frequentes
-- [ ] Monitoramento de custo por request
-- [ ] Logging de inputs/outputs para debug
+!!! quote "Mensagem final"
+    Agente em produção não é prompt grande. É **arquitetura**: contrato, memória, recuperação, segurança, observabilidade e avaliação.
