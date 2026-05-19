@@ -64,6 +64,8 @@ extra_css:
 
 extra_javascript:
   - assets/js/quiz.js
+  - path: assets/js/mermaid.js
+    type: module
 
 nav:
   - "🏠 Início": index.md
