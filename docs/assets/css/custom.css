@@ -114,41 +114,4 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Sidebar */
-@media screen and (min-width: 76.25em) {
-  .md-sidebar--primary {
-    width: 17rem;
-  }
-  .md-sidebar--primary .md-sidebar__scrollwrap {
-    width: 17rem;
-  }
-  .md-sidebar--secondary {
-    width: 13rem;
-  }
-}
 
-/* Nav: usar toda a largura sem indentação excessiva */
-.md-nav--primary .md-nav__link {
-  padding-right: 0.4rem;
-  margin-right: 0;
-}
-
-.md-nav--primary .md-nav__item {
-  padding: 0;
-}
-
-.md-nav--primary .md-nav--nested {
-  margin-left: 0.4rem;
-}
-
-.md-nav--primary,
-.md-nav--primary .md-nav {
-  width: 100%;
-}
-
-/* Permite texto completo sem truncar */
-.md-nav__link .md-ellipsis {
-  white-space: normal;
-  overflow: visible;
-  text-overflow: unset;
-}
