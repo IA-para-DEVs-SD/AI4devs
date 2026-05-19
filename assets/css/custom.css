@@ -1,0 +1,117 @@
+/* Hero section */
+.hero {
+  text-align: center;
+  padding: 2rem;
+  margin: 1rem 0 2rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(103, 58, 183, 0.1), rgba(255, 193, 7, 0.1));
+}
+
+.hero blockquote {
+  border: none;
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+/* Diagrams */
+.diagram-container {
+  text-align: center;
+  margin: 2rem 0;
+  padding: 1rem;
+}
+
+.diagram-container svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.diagram-caption {
+  font-size: 0.85rem;
+  color: var(--md-default-fg-color--light);
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+/* Key concepts */
+.concept-card {
+  padding: 1.5rem;
+  margin: 1rem 0;
+  border-radius: 12px;
+  background: var(--md-code-bg-color);
+  border-left: 4px solid var(--md-primary-fg-color);
+}
+
+/* Mermaid contrast fix */
+.mermaid [style*="fill:#ff6d00"] text,
+.mermaid [style*="fill:#ff9800"] text,
+.mermaid [style*="fill:#ff6d00"] span,
+.mermaid [style*="fill:#ff9800"] span {
+  fill: #000 !important;
+  color: #000 !important;
+}
+
+/* Mermaid: garante texto legível em ambos os modos */
+[data-md-color-scheme="slate"] .mermaid text:not([fill]),
+[data-md-color-scheme="slate"] .mermaid .edgeLabel text,
+[data-md-color-scheme="slate"] .mermaid .nodeLabel {
+  fill: #fff !important;
+  color: #fff !important;
+}
+
+[data-md-color-scheme="slate"] .mermaid .edgeLabel {
+  background-color: #2d2d2d !important;
+}
+
+[data-md-color-scheme="default"] .mermaid text:not([fill]),
+[data-md-color-scheme="default"] .mermaid .edgeLabel text,
+[data-md-color-scheme="default"] .mermaid .nodeLabel {
+  fill: #1a1a1a !important;
+  color: #1a1a1a !important;
+}
+
+/* Nós com fundo escuro sempre texto branco */
+.mermaid [style*="fill:#7c4dff"] .nodeLabel,
+.mermaid [style*="fill:#4a148c"] .nodeLabel,
+.mermaid [style*="fill:#1a237e"] .nodeLabel,
+.mermaid [style*="fill:#455a64"] .nodeLabel,
+.mermaid [style*="fill:#37474f"] .nodeLabel,
+.mermaid [style*="fill:#f44336"] .nodeLabel,
+.mermaid [style*="fill:#9c27b0"] .nodeLabel,
+.mermaid [style*="fill:#2196f3"] .nodeLabel,
+.mermaid [style*="fill:#4caf50"] .nodeLabel,
+.mermaid [style*="fill:#00c853"] .nodeLabel,
+.mermaid [style*="fill:#666"] .nodeLabel {
+  color: #fff !important;
+  fill: #fff !important;
+}
+
+/* Nós com fundo claro sempre texto preto */
+.mermaid [style*="fill:#ff6d00"] .nodeLabel,
+.mermaid [style*="fill:#ff9800"] .nodeLabel {
+  color: #000 !important;
+  fill: #000 !important;
+}
+
+/* Mermaid: texto em negrito para destaque */
+.mermaid .nodeLabel,
+.mermaid .edgeLabel text,
+.mermaid text.nodeLabel {
+  font-weight: 700 !important;
+}
+
+/* Mermaid: centralizar diagramas */
+.mermaid {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.md-content {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
