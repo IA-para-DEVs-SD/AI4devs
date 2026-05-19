@@ -4,15 +4,18 @@ mermaid.initialize({
   startOnLoad: false,
   theme: document.body.getAttribute('data-md-color-scheme') === 'slate' ? 'dark' : 'default',
   securityLevel: 'loose',
+  htmlLabels: true,
 });
 
-// pymdownx.superfences gera <pre class="mermaid"><code>...</code></pre>
-// Mermaid espera <pre class="mermaid">conteúdo</pre>
-document.querySelectorAll('pre.mermaid code').forEach((code) => {
-  const pre = code.parentElement;
-  pre.textContent = code.textContent;
-  pre.removeAttribute('class');
-  pre.classList.add('mermaid');
+// pymdownx.superfences gera: <pre class="mermaid"><code>...escaped...</code></pre>
+// Mermaid.run() lê o textContent do elemento, que decodifica entities automaticamente.
+// Só precisamos remover o <code> wrapper para que Mermaid encontre o conteúdo.
+document.querySelectorAll('pre.mermaid').forEach((pre) => {
+  const code = pre.querySelector('code');
+  if (code) {
+    // Pegar o texto decodificado e colocar diretamente no pre
+    pre.textContent = code.textContent;
+  }
 });
 
-await mermaid.run({ querySelector: '.mermaid' });
+await mermaid.run({ querySelector: 'pre.mermaid' });
