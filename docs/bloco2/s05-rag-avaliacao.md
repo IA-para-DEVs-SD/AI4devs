@@ -341,6 +341,21 @@ Score (1-5) e justificativa:
 
 ---
 
+## Dataset Mínimo de Avaliação
+
+Crie 20 perguntas para testar seu RAG:
+
+| Tipo | Quantidade | Objetivo |
+|------|:---:|----------|
+| Fáceis (resposta direta) | 5 | Baseline — deve acertar 100% |
+| Multi-documento (resposta espalhada) | 5 | Testa recuperação e síntese |
+| Pegadinhas (resposta parcial) | 5 | Testa se não inventa o resto |
+| Sem resposta na base | 5 | Testa se sabe dizer "não sei" |
+
+!!! tip "Um bom RAG precisa saber responder E saber dizer 'não encontrei evidência'."
+
+---
+
 ## Próximos Passos do Projeto
 
 ```mermaid

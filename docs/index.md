@@ -15,6 +15,20 @@
   </p>
 </div>
 
+## Para quem é este curso?
+
+Este curso é para desenvolvedores que querem usar IA no ciclo real de desenvolvimento: análise, código, testes, documentação, automação, RAG, agentes e observabilidade.
+
+Você não precisa ser cientista de dados. O foco é **IA aplicada à engenharia de software**.
+
+## Ao final, você será capaz de
+
+- Criar prompts profissionais com contexto, restrições e formato de saída
+- Usar IA para apoiar código, testes, documentação e análise
+- Construir agentes com tools, memória, RAG e guardrails
+- Avaliar respostas de IA com métricas como relevância, fidelidade e qualidade do contexto
+- Entender quando usar chatbot, workflow, agente ou automação low-code
+
 ---
 
 ## 🌍 Por que IA Agora?

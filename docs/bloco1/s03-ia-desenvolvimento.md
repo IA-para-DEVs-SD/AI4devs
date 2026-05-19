@@ -176,3 +176,27 @@ flowchart TD
 
 !!! quote "Princípio fundamental"
     **Autocomplete acelera escrita, não entendimento.** Quando o gargalo é clareza de problema, modelagem ou decisão, a IA pouco ajuda — e pode até atrapalhar, criando ilusão de progresso.
+
+---
+
+## Workflow Recomendado para PR com IA
+
+1. IA ajuda a entender a demanda
+2. IA propõe plano técnico
+3. Dev valida arquitetura
+4. IA gera implementação pequena
+5. Dev revisa diff
+6. IA sugere testes
+7. Pipeline valida
+8. Dev faz code review final
+
+## Matriz de Risco
+
+| Uso da IA | Risco | Controle |
+|---|---|---|
+| Gerar DTO simples | Baixo | Revisão manual |
+| Refatorar regra de negócio | Alto | Testes + diff pequeno |
+| Alterar query SQL | Alto | Explain plan + teste de massa |
+| Gerar documentação | Médio | Revisão por especialista |
+| Gerar testes unitários | Baixo | Rodar e validar cobertura |
+| Explicar código legado | Baixo | Conferir com quem conhece |

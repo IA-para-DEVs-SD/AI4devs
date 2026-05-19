@@ -180,3 +180,17 @@ flowchart TD
 1. **Tokenização**: Vá ao [Tokenizer da OpenAI](https://platform.openai.com/tokenizer) e compare quantos tokens geram textos em português vs inglês
 2. **Temperatura**: Use a mesma prompt com temperatura 0 e 1 — compare os resultados
 3. **Janela de contexto**: Tente fazer a IA "esquecer" algo enviando muito texto antes de perguntar sobre o início
+
+---
+
+## Exercício Rápido
+
+Pegue uma classe ou método do seu projeto e peça para a IA:
+
+1. Resumir a responsabilidade em 1 frase
+2. Listar 3 riscos potenciais
+3. Propor 2 testes unitários
+4. Apontar o que ela **não conseguiu inferir** sem mais contexto
+
+!!! tip "Impacto para devs"
+    Entender tokens ajuda a escrever prompts menores, reduzir custo e evitar estouro de contexto. Entender temperatura ajuda a escolher entre respostas consistentes (pipelines) e criativas (brainstorm).

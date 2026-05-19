@@ -69,7 +69,9 @@ nav:
   - "🏠 Início": index.md
   - "📘 Bloco 1 — Fundamentos":
     - "S01 — Fundamentos de IA": bloco1/s01-fundamentos.md
-    - "S02 — Prompt e Context Engineering": bloco1/s02-prompt-engineering.md
+    - "S02A — Prompt Engineering": bloco1/s02a-prompt-engineering.md
+    - "S02B — Context Engineering": bloco1/s02b-context-engineering.md
+    - "S02C — Técnicas Avançadas": bloco1/s02c-tecnicas-avancadas.md
     - "S03 — IA no Desenvolvimento": bloco1/s03-ia-desenvolvimento.md
   - "📗 Bloco 2 — Agentes e Automação":
     - "S01 — Tools e ReAct": bloco2/s01-tools-react.md
@@ -78,6 +80,10 @@ nav:
     - "S04 — MCP e LangGraph": bloco2/s04-mcp-langgraph.md
     - "S05 — RAG e Avaliação": bloco2/s05-rag-avaliacao.md
     - "S06 — Agentes em Produção": bloco2/s06-producao.md
+  - "📚 Guias":
+    - "Como Estudar": como-estudar.md
+    - "Glossário": glossario.md
+    - "Erros Comuns": erros-comuns.md
   - "🧪 Labs":
     - "Labs Práticos": labs.md
     - "Repositório": repositorio.md

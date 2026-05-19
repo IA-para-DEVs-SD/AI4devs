@@ -261,6 +261,35 @@ flowchart TD
 
 ---
 
+## Quando Usar MCP?
+
+=== "✅ Use MCP quando"
+    - Várias IAs precisam acessar as mesmas ferramentas
+    - Você quer padronizar tools internas
+    - Há necessidade de governança e auditoria
+    - A integração será reutilizada por IDE, chatbot ou agente
+    - O time quer desacoplar tools do código do agente
+
+=== "❌ Evite MCP quando"
+    - É só um script simples e descartável
+    - Existe uma única integração que não será reutilizada
+    - O time ainda não sabe quais tools realmente precisa expor
+    - O overhead de manter um server não se justifica
+
+## Checklist de Aprovação de um MCP Interno
+
+- [ ] Qual problema resolve?
+- [ ] Quem pode usar?
+- [ ] Quais dados acessa?
+- [ ] Quais ações executa?
+- [ ] Tem logs?
+- [ ] Tem autenticação?
+- [ ] Tem rate limit?
+- [ ] Tem ambiente de teste?
+- [ ] Tem owner técnico?
+
+---
+
 ## Exercícios Práticos — Stack Sentinel
 
 O projeto é construído incrementalmente em 16 exercícios:

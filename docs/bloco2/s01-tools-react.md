@@ -219,3 +219,38 @@ sequenceDiagram
 
 !!! quote "Princípio"
     **Autonomia não é meta. Confiabilidade é.** Um agente que faz menos, mas faz certo e com segurança, vale mais que um agente "autônomo" que toma decisões erradas.
+
+---
+
+## Checklist para Criar uma Tool Segura
+
+- [ ] Nome claro e descritivo
+- [ ] Descrição objetiva do que faz
+- [ ] Input schema validado (Pydantic/Zod)
+- [ ] Erros previsíveis tratados
+- [ ] Timeout configurado
+- [ ] Log de execução
+- [ ] Permissão explícita definida
+- [ ] Idempotência quando possível
+- [ ] Nenhuma ação destrutiva sem confirmação
+
+## Tool Ruim vs Tool Boa
+
+| Aspecto | ❌ Ruim | ✅ Boa |
+|---------|---------|--------|
+| Nome | `search_data` | `buscar_pedido_por_id` |
+| Descrição | "Busca dados" | "Busca um pedido pelo ID interno. Não altera dados. Retorna status, data e valor." |
+| Input | `Any` | `pedido_id: str (formato PED-XXXX)` |
+| Erro | Exceção genérica | `{"error": "pedido_nao_encontrado", "id": "PED-123"}` |
+| Escopo | Faz 5 coisas | Faz 1 coisa bem |
+
+## Quando Usar Workflow vs Agente
+
+| Cenário | Melhor escolha | Por quê |
+|---------|---------------|----------|
+| Fluxo fixo e repetitivo | Workflow | Determinístico, testável |
+| Decisão dinâmica com incerteza | Agente | Precisa raciocinar |
+| Integração entre APIs simples | Workflow | Sem necessidade de LLM |
+| Classificação + ação variável | Agente | Depende do input |
+| Alto volume / custo crítico | Workflow | Mais barato e previsível |
+| Exploração / pesquisa | Agente | Precisa de autonomia |
